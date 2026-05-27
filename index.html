@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Big Teks (Tekite Emmanuel Wonyinson) — Web Designer, Graphic Designer & Data Analyst. Portfolio showcasing tech-driven digital solutions."/>
+<title>Big Teks | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0f;--bg2:#0f0f1a;--bg3:#141428;--card:#1a1a2e;
+--accent:#4f8ef7;--accent2:#7c3aed;--accent3:#06d6a0;--neon:#00f5ff;
+--text:#e8e8f0;--text2:#a0a0c0;--text3:#606080;
+--border:#2a2a4a;--glow:rgba(79,142,247,0.15);
+}
+.light{
+--bg:#f0f4ff;--bg2:#e8eeff;--bg3:#f8f9ff;--card:#ffffff;
+--accent:#2563eb;--accent2:#7c3aed;--accent3:#059669;--neon:#0ea5e9;
+--text:#0f0f1f;--text2:#374151;--text3:#6b7280;
+--border:#dde3f5;--glow:rgba(37,99,235,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+.light nav{background:rgba(240,244,255,0.88)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.875rem;color:var(--text2);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-actions{display:flex;gap:.75rem;align-items:center}
+.btn-nav{padding:.5rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;border:1.5px solid var(--accent);color:var(--accent);background:transparent}
+.btn-nav:hover{background:var(--accent);color:#fff}
+.theme-btn{background:none;border:1.5px solid var(--border);border-radius:8px;padding:.5rem;cursor:pointer;color:var(--text2);font-size:1.1rem;transition:all .2s;display:flex}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:65px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1.2rem;z-index:99}
+.mobile-menu a{color:var(--text2);font-size:1rem;font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+/* SECTIONS */
+section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem;max-width:100%;position:relative;overflow:hidden}
+.hero-bg{position:fixed;inset:0;z-index:-1;background:var(--bg)}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb 8s ease-in-out infinite}
+.orb1{width:500px;height:500px;background:rgba(79,142,247,0.12);top:-100px;left:-100px;animation-delay:0s}
+.orb2{width:400px;height:400px;background:rgba(124,58,237,0.1);bottom:-50px;right:-50px;animation-delay:3s}
+.orb3{width:300px;height:300px;background:rgba(6,214,160,0.08);top:50%;left:50%;animation-delay:6s}
+@keyframes orb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,20px) scale(1.1)}}
+.hero-inner{position:relative;max-width:850px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.3);border-radius:100px;padding:.4rem 1rem;font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:1.5rem;animation:fadeUp .6s ease both}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent3);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:.5rem;animation:fadeUp .7s .1s ease both}
+.gradient-text{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--neon) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-size:clamp(1rem,2.5vw,1.35rem);color:var(--text2);margin-bottom:1.25rem;animation:fadeUp .7s .2s ease both;font-weight:500}
+.hero-desc{font-size:1rem;color:var(--text3);max-width:580px;margin:0 auto 2.5rem;line-height:1.8;animation:fadeUp .7s .3s ease both}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s .4s ease both}
+.btn-primary{padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,142,247,0.4)}
+.btn-outline{padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:transparent;border:1.5px solid var(--border);color:var(--text);transition:all .2s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;animation:fadeUp .7s .6s ease both}
+.stat{text-align:center}
+.stat-num{font-size:2rem;font-weight:800;color:var(--accent);font-family:'Space Grotesk',sans-serif}
+.stat-label{font-size:.8rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.05em}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--text3);font-size:.75rem;animation:fadeUp .7s 1s ease both}
+.scroll-hint i{animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTION TITLES */
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-tag{display:inline-block;font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem;background:rgba(79,142,247,0.1);padding:.3rem .9rem;border-radius:100px;border:1px solid rgba(79,142,247,0.25)}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:1rem}
+.section-sub{color:var(--text2);font-size:1rem;max-width:520px;margin:0 auto;line-height:1.7}
+.divider{width:50px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;margin:1rem auto 0}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:center}
+.avatar-wrap{position:relative;display:flex;justify-content:center}
+.avatar-ring{width:280px;height:280px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:4px;display:flex;align-items:center;justify-content:center}
+.avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:5rem;font-weight:800;color:var(--accent);font-family:'Space Grotesk',sans-serif}
+.avatar-badge{position:absolute;bottom:10px;right:10px;background:var(--accent3);color:#000;font-weight:700;font-size:.75rem;padding:.4rem .9rem;border-radius:100px}
+.about-text h2{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;margin-bottom:1rem}
+.about-text p{color:var(--text2);line-height:1.9;margin-bottom:1rem;font-size:.975rem}
+.about-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0}
+.pill{padding:.35rem .85rem;border-radius:100px;font-size:.8rem;font-weight:600;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.25);color:var(--accent)}
+.mission-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-top:1.5rem;border-left:3px solid var(--accent)}
+.mission-box h4{font-weight:700;margin-bottom:.5rem;color:var(--accent);font-size:.9rem;text-transform:uppercase;letter-spacing:.05em}
+.mission-box p{color:var(--text2);font-size:.9rem;line-height:1.7;margin:0}
+
+/* SERVICES */
+#services{background:var(--bg2)}
+.services-wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.svc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden;cursor:default}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:0;transition:.3s}
+.svc-card:hover{transform:translateY(-6px);border-color:var(--accent)}
+.svc-card:hover::before{opacity:.04}
+.svc-icon{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,rgba(79,142,247,0.15),rgba(124,58,237,0.15));display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin-bottom:1.25rem;transition:.3s}
+.svc-card:hover .svc-icon{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.svc-card h3{font-weight:700;margin-bottom:.6rem;font-size:1.05rem}
+.svc-card p{color:var(--text2);font-size:.875rem;line-height:1.7}
+.svc-card .svc-tag{display:inline-block;margin-top:.75rem;font-size:.75rem;font-weight:600;color:var(--accent3);background:rgba(6,214,160,0.1);padding:.2rem .7rem;border-radius:100px;border:1px solid rgba(6,214,160,0.2)}
+
+/* PORTFOLIO */
+.filter-tabs{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
+.filter-tab{padding:.5rem 1.25rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--text2);transition:all .2s}
+.filter-tab.active,.filter-tab:hover{border-color:var(--accent);color:var(--accent);background:rgba(79,142,247,0.08)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s}
+.proj-card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.proj-img{height:180px;background:linear-gradient(135deg,var(--bg3),var(--card));display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
+.proj-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))}
+.proj-body{padding:1.25rem}
+.proj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem}
+.proj-tag{font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:6px;background:rgba(79,142,247,0.12);color:var(--accent)}
+.proj-body h3{font-weight:700;margin-bottom:.5rem;font-size:1rem}
+.proj-body p{color:var(--text2);font-size:.85rem;line-height:1.6;margin-bottom:1rem}
+.proj-links{display:flex;gap:.6rem}
+.proj-btn{flex:1;padding:.5rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;text-align:center;transition:all .2s}
+.proj-btn.demo{background:var(--accent);color:#fff;border:none}
+.proj-btn.demo:hover{opacity:.85}
+.proj-btn.gh{background:transparent;border:1.5px solid var(--border);color:var(--text2)}
+.proj-btn.gh:hover{border-color:var(--accent);color:var(--accent)}
+
+/* SKILLS */
+#skills{background:var(--bg2)}
+.skills-wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.skill-item{margin-bottom:1.5rem}
+.skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.skill-name{font-weight:600;font-size:.9rem}
+.skill-pct{font-size:.85rem;color:var(--accent);font-weight:700}
+.skill-bar{height:6px;background:var(--border);border-radius:6px;overflow:hidden}
+.skill-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s ease}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2.5rem}
+.timeline::before{content:'';position:absolute;left:.75rem;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2))}
+.tl-item{position:relative;margin-bottom:2.5rem}
+.tl-dot{position:absolute;left:-2.1rem;top:.3rem;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:3px solid var(--bg)}
+.tl-date{font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
+.tl-content{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.tl-content h3{font-weight:700;margin-bottom:.4rem;font-size:1rem}
+.tl-content p{color:var(--text2);font-size:.875rem;line-height:1.7;margin:0}
+.achieve-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:3rem}
+.achieve-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;align-items:flex-start;gap:.9rem}
+.achieve-icon{font-size:1.6rem;color:var(--accent);flex-shrink:0}
+.achieve-card h4{font-weight:700;font-size:.9rem;margin-bottom:.25rem}
+.achieve-card p{color:var(--text2);font-size:.8rem;line-height:1.5;margin:0}
+
+/* TESTIMONIALS */
+.testi-wrap{max-width:900px;margin:0 auto}
+.testi-slider{position:relative;overflow:hidden;border-radius:16px}
+.testi-track{display:flex;transition:transform .5s ease}
+.testi-slide{min-width:100%;padding:2.5rem;background:var(--card);border:1px solid var(--border);border-radius:16px}
+.testi-quote{font-size:3rem;color:var(--accent);opacity:.3;line-height:1;margin-bottom:.5rem;font-family:Georgia,serif}
+.testi-text{font-size:1.05rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:1rem}
+.testi-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:#fff}
+.testi-name{font-weight:700;font-size:.95rem}
+.testi-role{font-size:.8rem;color:var(--text3)}
+.testi-stars{color:#facc15;font-size:.9rem;margin-top:.2rem}
+.testi-nav{display:flex;justify-content:center;gap:.75rem;margin-top:1.5rem}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:.3s}
+.testi-dot.active{background:var(--accent);width:24px}
+.testi-arrows{display:flex;justify-content:center;gap:1rem;margin-top:1rem}
+.testi-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);transition:all .2s}
+.testi-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* CONTACT */
+#contact{background:var(--bg2)}
+.contact-wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem}
+.contact-info h3{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.contact-info p{color:var(--text2);line-height:1.8;margin-bottom:2rem;font-size:.95rem}
+.contact-items{display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;transition:border-color .2s}
+.contact-item:hover{border-color:var(--accent)}
+.ci-icon{width:42px;height:42px;border-radius:10px;background:rgba(79,142,247,0.1);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;flex-shrink:0}
+.ci-label{font-size:.75rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.ci-val{font-size:.9rem;font-weight:500;color:var(--text)}
+.social-row{display:flex;gap:.75rem;margin-top:1.5rem}
+.soc-btn{width:42px;height:42px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:1.1rem;cursor:pointer;transition:all .2s}
+.soc-btn:hover{border-color:var(--accent);color:var(--accent)}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
+.form-group label{font-size:.8rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.04em}
+.form-group input,.form-group textarea,.form-group select{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-size:.9rem;font-family:'Inter',sans-serif;transition:border-color .2s;resize:none;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{min-height:120px}
+.btn-submit{width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-submit:hover{opacity:.9;transform:translateY(-2px)}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:.75rem;width:100%;padding:.85rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:#25d366;color:#fff;border:none;margin-top:.75rem;transition:all .2s}
+.wa-btn:hover{opacity:.9;transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem 1.5rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand .logo{font-size:1.6rem;display:block;margin-bottom:.75rem}
+.footer-brand p{color:var(--text3);font-size:.875rem;line-height:1.7;max-width:280px}
+.footer-links h4{font-weight:700;margin-bottom:1rem;font-size:.95rem}
+.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-links li a{color:var(--text3);font-size:.875rem;transition:color .2s}
+.footer-links li a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap:.5rem}
+.footer-copy{color:var(--text3);font-size:.8rem}
+.visitor-count{color:var(--text3);font-size:.8rem;display:flex;align-items:center;gap:.4rem}
+.vis-num{color:var(--accent);font-weight:700}
+
+/* CHATBOT */
+.chat-fab{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;box-shadow:0 4px 20px rgba(79,142,247,0.4);z-index:200;transition:transform .2s}
+.chat-fab:hover{transform:scale(1.1)}
+.chat-window{position:fixed;bottom:5.5rem;right:2rem;width:320px;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;z-index:200;box-shadow:0 20px 60px rgba(0,0,0,.4);display:none;flex-direction:column}
+.chat-window.open{display:flex}
+.chat-head{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:1rem;display:flex;align-items:center;gap:.75rem;color:#fff}
+.chat-head .ch-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.chat-head h4{font-size:.95rem;font-weight:700}
+.chat-head p{font-size:.75rem;opacity:.8}
+.chat-close{margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;font-size:1.1rem}
+.chat-body{height:240px;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem}
+.chat-msg{max-width:80%;padding:.6rem .9rem;border-radius:12px;font-size:.85rem;line-height:1.5}
+.chat-msg.bot{background:var(--bg2);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
+.chat-msg.user{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-input-row{padding:.75rem;border-top:1px solid var(--border);display:flex;gap:.5rem}
+.chat-input-row input{flex:1;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:.5rem .75rem;font-size:.85rem;color:var(--text);outline:none;font-family:'Inter',sans-serif}
+.chat-input-row input:focus{border-color:var(--accent)}
+.chat-send{background:var(--accent);border:none;border-radius:8px;padding:.5rem .75rem;color:#fff;cursor:pointer;font-size:.9rem}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer}
+.blog-card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.blog-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:linear-gradient(135deg,var(--bg2),var(--bg3))}
+.blog-body{padding:1.25rem}
+.blog-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.blog-cat{font-size:.7rem;font-weight:700;color:var(--accent);background:rgba(79,142,247,0.1);padding:.2rem .7rem;border-radius:100px;border:1px solid rgba(79,142,247,0.2)}
+.blog-date{font-size:.75rem;color:var(--text3)}
+.blog-card h3{font-weight:700;font-size:.95rem;margin-bottom:.5rem;line-height:1.4}
+.blog-card p{color:var(--text2);font-size:.83rem;line-height:1.6}
+.blog-read{display:flex;align-items:center;gap:.3rem;margin-top:.75rem;font-size:.8rem;font-weight:600;color:var(--accent)}
+
+/* DARK MODE TOGGLE ANIMATION */
+#darkToggle{transition:.2s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links,.nav-actions .btn-nav{display:none}
+  .hamburger{display:flex}
+  .about-grid{grid-template-columns:1fr}
+  .avatar-wrap{margin-bottom:2rem}
+  .skills-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+  .stat-num{font-size:1.5rem}
+  .chat-window{right:1rem;left:1rem;width:auto}
+  .footer-bottom{flex-direction:column;text-align:center;gap:.5rem}
+}
+@media(max-width:480px){
+  nav{padding:.875rem 1rem}
+  section{padding:4rem 1rem}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline{width:100%;text-align:center}
+}
+</style>
+</head>
+<body id="body">
+
+<!-- BACKGROUND -->
+<div class="hero-bg">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Big Teks</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme" id="darkToggle"><i class="ti ti-moon"></i></button>
+    <a href="#contact"><button class="btn-nav">Hire Me</button></a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#portfolio" onclick="closeMenu()">Projects</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#blog" onclick="closeMenu()">Blog</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span> Available for Freelance & Full-time</div>
+    <h1 class="hero-name">Tekite Emmanuel <span class="gradient-text">Wonyinson</span></h1>
+    <p class="hero-title">Web Designer &nbsp;·&nbsp; Graphic Designer &nbsp;·&nbsp; Data Analyst</p>
+    <p class="hero-desc">Crafting premium digital experiences at the intersection of design, code, and data — passionate about building tech-driven solutions that inspire, engage, and deliver results.</p>
+    <div class="hero-btns">
+      <a href="#contact"><button class="btn-primary"><i class="ti ti-briefcase" style="margin-right:.4rem"></i>Hire Me</button></a>
+      <a href="#portfolio"><button class="btn-outline"><i class="ti ti-grid-dots" style="margin-right:.4rem"></i>View Projects</button></a>
+      <a href="#" onclick="downloadCV()"><button class="btn-outline"><i class="ti ti-download" style="margin-right:.4rem"></i>Download CV</button></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Projects Done</div></div>
+      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Happy Clients</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Certifications</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><i class="ti ti-chevrons-down"></i><span>Scroll to explore</span></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">The Brain Behind <span class="gradient-text">Teks Tech</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/1px-Gatto_europeo4.jpg" alt="Tekite Emmanuel Wonyinson" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.parentNode.innerHTML='BT'"/>
+      </div>
+      <div class="avatar-badge">🚀 Open to Work</div>
+    </div>
+    <div class="about-text">
+      <h2>Hi, I'm <span class="gradient-text">Big Teks</span></h2>
+      <p>I'm Tekite Emmanuel Wonyinson — a multi-disciplinary tech creative based in Nigeria. I specialize in web design & development, graphic branding, and data analytics. My work bridges aesthetics and logic, transforming complex ideas into clean, impactful digital products.</p>
+      <p>Through <strong>Teks Tech</strong>, I help startups, businesses, and individuals establish powerful digital presences. I believe great technology should be both functional and beautiful — and I build with that philosophy at the core.</p>
+      <div class="about-pills">
+        <span class="pill">React Developer</span>
+        <span class="pill">UI/UX Designer</span>
+        <span class="pill">Data Analyst</span>
+        <span class="pill">WordPress Expert</span>
+        <span class="pill">Brand Designer</span>
+        <span class="pill">Python Dev</span>
+        <span class="pill">AI Enthusiast</span>
+      </div>
+      <div class="mission-box">
+        <h4>Mission & Vision</h4>
+        <p>To empower businesses and individuals with world-class digital solutions through innovative design, clean code, and data-driven insights — making technology accessible to every corner of Africa and beyond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services" style="padding:5rem 0">
+  <div class="services-wrap">
+    <div class="section-header">
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">Services <span class="gradient-text">Offered</span></h2>
+      <p class="section-sub">End-to-end digital solutions tailored to your business goals</p>
+      <div class="divider"></div>
+    </div>
+    <div class="cards-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-device-laptop"></i></div>
+        <h3>Website Design & Development</h3>
+        <p>Stunning, responsive websites built with modern frameworks. From landing pages to full web apps — pixel-perfect and performance-optimized.</p>
+        <span class="svc-tag">HTML · CSS · React · JS</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-palette"></i></div>
+        <h3>Graphic Design & Branding</h3>
+        <p>Brand identities that speak volumes — logos, social media graphics, flyers, business cards, and complete brand kits.</p>
+        <span class="svc-tag">Illustrator · Figma · Canva</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-chart-bar"></i></div>
+        <h3>Data Analysis & Visualization</h3>
+        <p>Turn raw data into actionable insights with beautiful dashboards, interactive charts, and statistical reports.</p>
+        <span class="svc-tag">Python · Power BI · Excel</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-brand-wordpress"></i></div>
+        <h3>WordPress Development</h3>
+        <p>Custom WordPress sites, theme development, plugin configuration, and WooCommerce e-commerce solutions.</p>
+        <span class="svc-tag">WordPress · Elementor · PHP</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-layout-dashboard"></i></div>
+        <h3>Dashboard & Admin Systems</h3>
+        <p>Powerful admin panels and management systems with real-time analytics, role management, and data control.</p>
+        <span class="svc-tag">React · Firebase · Tailwind</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-brain"></i></div>
+        <h3>AI-Powered Solutions</h3>
+        <p>Intelligent chatbots, AI-integrated apps, and automation tools built on cutting-edge AI APIs and frameworks.</p>
+        <span class="svc-tag">Claude AI · OpenAI · Python</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header">
+    <div class="section-tag">Portfolio</div>
+    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+    <p class="section-sub">A selection of work that showcases creativity, technical depth, and impact</p>
+    <div class="divider"></div>
+  </div>
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterProj('all',this)">All Projects</button>
+    <button class="filter-tab" onclick="filterProj('web',this)">Web Design</button>
+    <button class="filter-tab" onclick="filterProj('graphics',this)">Graphics</button>
+    <button class="filter-tab" onclick="filterProj('data',this)">Data & Analytics</button>
+  </div>
+  <div class="projects-grid" id="projGrid">
+    <div class="proj-card" data-cat="web">
+      <div class="proj-img" style="background:linear-gradient(135deg,#1a1a3e,#2d2d5e)">🛒<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Firebase</span><span class="proj-tag">Tailwind</span></div>
+        <h3>ShopEase — E-Commerce Platform</h3>
+        <p>Full-stack e-commerce app with cart management, payment integration, real-time inventory, and admin dashboard.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-cat="data">
+      <div class="proj-img" style="background:linear-gradient(135deg,#0f2027,#203a43)">📊<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Power BI</span><span class="proj-tag">Pandas</span></div>
+        <h3>Sales Analytics Dashboard</h3>
+        <p>Interactive business intelligence dashboard with KPI tracking, trend analysis, and automated reporting for SMEs.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-cat="graphics">
+      <div class="proj-img" style="background:linear-gradient(135deg,#2d0042,#4a0066)">🎨<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">Figma</span><span class="proj-tag">Illustrator</span><span class="proj-tag">Branding</span></div>
+        <h3>Teks Tech Brand Identity</h3>
+        <p>Complete brand system including logo design, color palette, typography, social media templates, and brand guidelines.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo">👁 View Work</button>
+          <button class="proj-btn gh"><i class="ti ti-link"></i> Behance</button>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-cat="web">
+      <div class="proj-img" style="background:linear-gradient(135deg,#003d2b,#006644)">🏥<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span class="proj-tag">MySQL</span></div>
+        <h3>HealthLink — Hospital Management</h3>
+        <p>Comprehensive hospital management system with patient records, appointment scheduling, and staff management.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-cat="data">
+      <div class="proj-img" style="background:linear-gradient(135deg,#1a0533,#2d0d66)">🤖<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Claude AI</span><span class="proj-tag">Streamlit</span></div>
+        <h3>AI Study Assistant</h3>
+        <p>Intelligent study assistant powered by Claude API with document analysis, quiz generation, and personalized learning paths.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo">🚀 Try It</button>
+          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card" data-cat="web">
+      <div class="proj-img" style="background:linear-gradient(135deg,#002d3d,#004d6e)">📱<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">WordPress</span><span class="proj-tag">WooCommerce</span><span class="proj-tag">SEO</span></div>
+        <h3>NaijaMart — WordPress Store</h3>
+        <p>Fully customized WooCommerce store with payment gateway integration, inventory system, and SEO optimization.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div id="skills" style="padding:5rem 0">
+  <div class="skills-wrap">
+    <div class="section-header">
+      <div class="section-tag">Expertise</div>
+      <h2 class="section-title">Skills & <span class="gradient-text">Proficiency</span></h2>
+      <p class="section-sub">Continuously learning and mastering modern technologies</p>
+      <div class="divider"></div>
+    </div>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">React.js</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">WordPress</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+      </div>
+      <div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Firebase</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Data Analytics</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">UI/UX Design</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-tag">Journey</div>
+    <h2 class="section-title">Experience & <span class="gradient-text">Achievements</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2024 – Present</div>
+      <div class="tl-content">
+        <h3>Founder & Lead Developer — Teks Tech</h3>
+        <p>Established Teks Tech as a digital solutions brand. Delivering web development, graphic design, and data analytics services to clients across Nigeria and internationally.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2023 – 2024</div>
+      <div class="tl-content">
+        <h3>Freelance Web Designer & Data Analyst</h3>
+        <p>Completed 30+ client projects spanning e-commerce stores, business websites, brand identities, and data dashboards. Built a strong client base through referrals and online platforms.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2022 – 2023</div>
+      <div class="tl-content">
+        <h3>Royal Rangers Leader & Tech Trainer</h3>
+        <p>Served as a Royal Rangers leader, mentoring youth in leadership, discipline, and digital literacy. Organized tech workshops teaching basic programming and design skills.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2021 – 2022</div>
+      <div class="tl-content">
+        <h3>Started Self-Learning Journey</h3>
+        <p>Embarked on a self-taught path in web development and design. Completed foundational courses in HTML, CSS, JavaScript, Python, and graphic design.</p>
+      </div>
+    </div>
+  </div>
+  <div class="achieve-grid">
+    <div class="achieve-card">
+      <div class="achieve-icon"><i class="ti ti-certificate"></i></div>
+      <div><h4>Meta Front-End Certificate</h4><p>Professional certification in React, HTML, CSS & JavaScript</p></div>
+    </div>
+    <div class="achieve-card">
+      <div class="achieve-icon"><i class="ti ti-trophy"></i></div>
+      <div><h4>Google Data Analytics</h4><p>Certified in data analysis, visualization and R programming</p></div>
+    </div>
+    <div class="achieve-card">
+      <div class="achieve-icon"><i class="ti ti-star"></i></div>
+      <div><h4>50+ Projects Delivered</h4><p>Serving clients across tech, education, health & commerce</p></div>
+    </div>
+    <div class="achieve-card">
+      <div class="achieve-icon"><i class="ti ti-users"></i></div>
+      <div><h4>Royal Rangers Award</h4><p>Leadership excellence and community development recognition</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div id="testimonials" style="padding:5rem 2rem;max-width:1200px;margin:0 auto">
+  <div class="section-header">
+    <div class="section-tag">Testimonials</div>
+    <h2 class="section-title">What Clients <span class="gradient-text">Say</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testi-wrap">
+    <div class="testi-slider">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-slide">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Big Teks completely transformed our online presence. The website he built was beyond what we imagined — fast, modern, and our sales doubled within 3 months. Highly recommend Teks Tech!</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AO</div>
+            <div>
+              <div class="testi-name">Adaeze Okonkwo</div>
+              <div class="testi-role">CEO, ShopEase Nigeria</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">The data dashboard Emmanuel built for us gave us clarity we never had. We can now make strategic decisions in real time. His technical skills and communication are world-class.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">EI</div>
+            <div>
+              <div class="testi-name">Emmanuel Ikechukwu</div>
+              <div class="testi-role">Operations Manager, LogisticsPro</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">The brand identity Teks designed for my startup was exceptional. Logo, social templates, pitch deck — everything was cohesive and premium. My investors were impressed from day one.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">FK</div>
+            <div>
+              <div class="testi-name">Fatima Kamara</div>
+              <div class="testi-role">Founder, FreshStart Hub</div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-arrows">
+      <button class="testi-btn" onclick="slideTesti(-1)"><i class="ti ti-chevron-left"></i></button>
+      <button class="testi-btn" onclick="slideTesti(1)"><i class="ti ti-chevron-right"></i></button>
+    </div>
+    <div class="testi-nav" id="testiNav">
+      <div class="testi-dot active" onclick="goTesti(0)"></div>
+      <div class="testi-dot" onclick="goTesti(1)"></div>
+      <div class="testi-dot" onclick="goTesti(2)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header">
+    <div class="section-tag">Blog</div>
+    <h2 class="section-title">Latest <span class="gradient-text">Articles</span></h2>
+    <p class="section-sub">Thoughts on tech, design, and building digital products in Africa</p>
+    <div class="divider"></div>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-img">💻</div>
+      <div class="blog-body">
+        <div class="blog-meta"><span class="blog-cat">Web Dev</span><span class="blog-date">May 2025</span></div>
+        <h3>Building Scalable React Apps: Lessons from Real Projects</h3>
+        <p>Practical patterns and architecture decisions I use when building production-ready React applications...</p>
+        <div class="blog-read"><i class="ti ti-arrow-right"></i> Read Article</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img">📊</div>
+      <div class="blog-body">
+        <div class="blog-meta"><span class="blog-cat">Data</span><span class="blog-date">Apr 2025</span></div>
+        <h3>Data Analytics for African Businesses: Where to Start</h3>
+        <p>A practical guide for small and medium businesses on leveraging data analytics without a big budget...</p>
+        <div class="blog-read"><i class="ti ti-arrow-right"></i> Read Article</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img">🤖</div>
+      <div class="blog-body">
+        <div class="blog-meta"><span class="blog-cat">AI</span><span class="blog-date">Mar 2025</span></div>
+        <h3>How AI is Reshaping Freelance Tech Work in Nigeria</h3>
+        <p>Exploring how artificial intelligence tools are changing the landscape for tech freelancers and creators...</p>
+        <div class="blog-read"><i class="ti ti-arrow-right"></i> Read Article</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact" style="padding:5rem 0">
+  <div class="contact-wrap">
+    <div class="section-header">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
+      <p class="section-sub">Ready to bring your vision to life? Let's have a conversation.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact <span class="gradient-text">Information</span></h3>
+        <p>Whether you have a project in mind, need a quote, or just want to say hello — my inbox is always open. I typically respond within 24 hours.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon"><i class="ti ti-mail"></i></div>
+            <div><div class="ci-label">Email</div><div class="ci-val">bigmanteks@gmail.com</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"><i class="ti ti-phone"></i></div>
+            <div><div class="ci-label">Phone / WhatsApp</div><div class="ci-val">+234 810 113 8259</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"><i class="ti ti-map-pin"></i></div>
+            <div><div class="ci-label">Location</div><div class="ci-val">Nigeria (Remote Worldwide)</div></div>
+          </div>
+        </div>
+        <div class="social-row">
+          <div class="soc-btn" title="GitHub"><i class="ti ti-brand-github"></i></div>
+          <div class="soc-btn" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></div>
+          <div class="soc-btn" title="Twitter/X"><i class="ti ti-brand-x"></i></div>
+          <div class="soc-btn" title="Instagram"><i class="ti ti-brand-instagram"></i></div>
+          <div class="soc-btn" title="YouTube"><i class="ti ti-brand-youtube"></i></div>
+          <div class="soc-btn" title="WhatsApp" onclick="openWhatsApp()"><i class="ti ti-brand-whatsapp"></i></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name"/>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>Website Development</option>
+            <option>Graphic Design</option>
+            <option>Data Analytics</option>
+            <option>WordPress Development</option>
+            <option>AI Solutions</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about your project, timeline, and budget..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()"><i class="ti ti-send" style="margin-right:.4rem"></i>Send Message</button>
+        <button class="wa-btn" onclick="openWhatsApp()"><i class="ti ti-brand-whatsapp" style="font-size:1.2rem"></i>Chat on WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Big Teks</span>
+        <p>Building premium digital solutions across web design, graphic design, and data analytics. Powered by <strong>Teks Tech</strong>.</p>
+        <div class="social-row" style="margin-top:1rem">
+          <div class="soc-btn"><i class="ti ti-brand-github"></i></div>
+          <div class="soc-btn"><i class="ti ti-brand-linkedin"></i></div>
+          <div class="soc-btn"><i class="ti ti-brand-x"></i></div>
+          <div class="soc-btn"><i class="ti ti-brand-instagram"></i></div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">Graphic Design</a></li>
+          <li><a href="#services">Data Analytics</a></li>
+          <li><a href="#services">WordPress</a></li>
+          <li><a href="#services">AI Solutions</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Tekite Emmanuel Wonyinson (Big Teks) · <strong>Teks Tech</strong>. All rights reserved.</div>
+      <div class="visitor-count"><i class="ti ti-eye" style="font-size:.9rem"></i> <span class="vis-num" id="visCount">0</span> visitors this month</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT -->
+<button class="chat-fab" onclick="toggleChat()" title="Chat with Teks Bot"><i class="ti ti-message-chatbot"></i></button>
+<div class="chat-window" id="chatWin">
+  <div class="chat-head">
+    <div class="ch-avatar"><i class="ti ti-robot"></i></div>
+    <div><h4>Teks Bot</h4><p>Ask me anything!</p></div>
+    <button class="chat-close" onclick="toggleChat()"><i class="ti ti-x"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">👋 Hi! I'm Teks Bot, Big Teks' assistant. How can I help you today?</div>
+    <div class="chat-msg bot">You can ask me about services, pricing, availability, or just say hello! 😊</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatIn" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()"/>
+    <button class="chat-send" onclick="sendChat()"><i class="ti ti-send"></i></button>
+  </div>
+</div>
+
+<script>
+let isDark=true,testiIdx=0,chatOpen=false,menuOpen=false;
+
+function toggleTheme(){
+  isDark=!isDark;
+  document.getElementById('body').classList.toggle('light',!isDark);
+  document.getElementById('darkToggle').innerHTML=isDark?'<i class="ti ti-moon"></i>':'<i class="ti ti-sun"></i>';
+}
+function toggleMenu(){menuOpen=!menuOpen;document.getElementById('mobileMenu').style.display=menuOpen?'flex':'none'}
+function closeMenu(){menuOpen=false;document.getElementById('mobileMenu').style.display='none'}
+
+function filterProj(cat,el){
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
+}
+
+function slideTesti(dir){goTesti(testiIdx+dir)}
+function goTesti(idx){
+  const slides=document.querySelectorAll('.testi-slide');
+  testiIdx=(idx+slides.length)%slides.length;
+  document.getElementById('testiTrack').style.transform=`translateX(-${testiIdx*100}%)`;
+  document.querySelectorAll('.testi-dot').forEach((d,i)=>{d.classList.toggle('active',i===testiIdx)});
+}
+setInterval(()=>slideTesti(1),5000);
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatWin').classList.toggle('open',chatOpen);
+}
+
+const botReplies={
+  'hello':'Hello! 👋 Great to hear from you. How can I assist you today?',
+  'hi':'Hi there! Ready to help. Are you looking for web design, data, or graphic design services?',
+  'services':'Big Teks offers Web Design, Graphic Design, Data Analytics, WordPress Dev, Dashboard Systems, and AI-Powered Solutions! 🚀',
+  'price':'Pricing varies by project scope. Feel free to use the contact form for a custom quote!',
+  'contact':'You can reach Big Teks via the contact form above, WhatsApp, or email at bigteks@tekitech.com 📧',
+  'hire':'Awesome! Head to the Contact section above and fill in your project details. Big Teks responds within 24 hours! ⚡',
+  'default':"That's a great question! For detailed answers, please reach out via the contact form or WhatsApp. Big Teks will get back to you shortly! 😊"
+};
+
+function sendChat(){
+  const inp=document.getElementById('chatIn');
+  const msg=inp.value.trim();
+  if(!msg)return;
+  const body=document.getElementById('chatBody');
+  body.innerHTML+=`<div class="chat-msg user">${msg}</div>`;
+  inp.value='';
+  const key=Object.keys(botReplies).find(k=>msg.toLowerCase().includes(k))||'default';
+  setTimeout(()=>{
+    body.innerHTML+=`<div class="chat-msg bot">${botReplies[key]}</div>`;
+    body.scrollTop=body.scrollHeight;
+  },600);
+  body.scrollTop=body.scrollHeight;
+}
+
+function submitForm(){
+  alert('✅ Message sent! Big Teks will get back to you within 24 hours.');
+}
+function downloadCV(){
+  alert('📄 CV download will start shortly. Thank you for your interest!');
+}
+function openWhatsApp(){
+  window.open('https://wa.me/2348101138259?text=Hi%20Big%20Teks!%20I%27d%20like%20to%20discuss%20a%20project.','_blank');
+}
+
+// Skill bars
+function animateSkills(){
+  document.querySelectorAll('.skill-fill').forEach(bar=>{
+    const w=bar.dataset.w;
+    setTimeout(()=>{bar.style.width=w+'%'},200);
+  });
+}
+const skillsObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){animateSkills();skillsObs.disconnect();}
+},{threshold:.3});
+const skillsEl=document.getElementById('skills');
+if(skillsEl)skillsObs.observe(skillsEl);
+
+// Visitor counter
+const visBase=1247;
+document.getElementById('visCount').textContent=(visBase+Math.floor(Math.random()*50)).toLocaleString();
+</script>
+</body>
+</html>
