@@ -432,83 +432,83 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem
   </div>
   <div class="filter-tabs">
     <button class="filter-tab active" onclick="filterProj('all',this)">All Projects</button>
-    <button class="filter-tab" onclick="filterProj('web',this)">Web Design</button>
-    <button class="filter-tab" onclick="filterProj('graphics',this)">Graphics</button>
-    <button class="filter-tab" onclick="filterProj('data',this)">Data & Analytics</button>
+    <button class="filter-tab" onclick="filterProj('pwa',this)">PWA</button>
+    <button class="filter-tab" onclick="filterProj('webapp',this)">Web Apps</button>
+    <button class="filter-tab" onclick="filterProj('fintech',this)">FinTech</button>
+    <button class="filter-tab" onclick="filterProj('military',this)">Military / Ops</button>
   </div>
   <div class="projects-grid" id="projGrid">
-    <div class="proj-card" data-cat="web">
-      <div class="proj-img" style="background:linear-gradient(135deg,#1a1a3e,#2d2d5e)">🛒<div class="proj-img-overlay"></div></div>
+
+    <!-- Pilot E-Flight Logbook -->
+    <div class="proj-card" data-cat="military">
+      <div class="proj-img" style="background:linear-gradient(135deg,#0a1628,#1a3a5c)">✈️<div class="proj-img-overlay"></div></div>
       <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Firebase</span><span class="proj-tag">Tailwind</span></div>
-        <h3>ShopEase — E-Commerce Platform</h3>
-        <p>Full-stack e-commerce app with cart management, payment integration, real-time inventory, and admin dashboard.</p>
+        <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">Firebase</span><span class="proj-tag">JavaScript</span></div>
+        <h3>115 SOG — Pilot E-Flight Logbook System</h3>
+        <p>Official digital platform for Nigerian Air Force pilots to record, track and manage their complete flying history. Cloud-synced with cumulative hours, medical cert expiry tracking, qualification monitoring, and official PDF/Excel report generation.</p>
         <div class="proj-links">
-          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn demo" onclick="window.open('#','_blank')">🚀 Live Demo</button>
+          <button class="proj-btn gh">N/A</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nita's Mul-Biz -->
+    <div class="proj-card" data-cat="pwa webapp">
+      <div class="proj-img" style="background:linear-gradient(135deg,#1a2e1a,#2d5c2d)">🛍️<div class="proj-img-overlay"></div></div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">HTML/CSS/JS</span><span class="proj-tag">Firebase</span><span class="proj-tag">PWA</span><span class="proj-tag">WhatsApp API</span></div>
+        <h3>Nita's Mul-Biz</h3>
+        <p>Multi-purpose Lagos business web app combining e-commerce, service bookings, and a community savings/contribution system. Features WhatsApp integration, PWA Android install support, offline capability, and Netlify HTTPS hosting.</p>
+        <div class="proj-links">
+          <button class="proj-btn demo" onclick="window.open('https://nitas-mulbiz.vercel.app/','_blank')">🚀 Live Demo</button>
           <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
         </div>
       </div>
     </div>
-    <div class="proj-card" data-cat="data">
-      <div class="proj-img" style="background:linear-gradient(135deg,#0f2027,#203a43)">📊<div class="proj-img-overlay"></div></div>
+
+    <!-- MDMAS -->
+    <div class="proj-card" data-cat="military pwa">
+      <div class="proj-img" style="background:linear-gradient(135deg,#0a1f0a,#0d2b0d)">🛡️<div class="proj-img-overlay"></div></div>
       <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Power BI</span><span class="proj-tag">Pandas</span></div>
-        <h3>Sales Analytics Dashboard</h3>
-        <p>Interactive business intelligence dashboard with KPI tracking, trend analysis, and automated reporting for SMEs.</p>
+        <div class="proj-tags"><span class="proj-tag">PWA</span><span class="proj-tag">Firebase</span><span class="proj-tag">Chart.js</span><span class="proj-tag">SheetJS</span></div>
+        <h3>NAF 115 SOG — MDMAS</h3>
+        <p>Military-grade PWA for the Nigerian Air Force 115 Special Operations Group. Manages mission logging, crew records, aircraft utilization and operational analytics in real time. Features role-based access, bulk Excel import, command-level reports, and full offline installability.</p>
         <div class="proj-links">
-          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn demo" onclick="window.open('https://dcat-gamma.vercel.app/','_blank')">🚀 Live Demo</button>
           <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
         </div>
       </div>
     </div>
-    <div class="proj-card" data-cat="graphics">
-      <div class="proj-img" style="background:linear-gradient(135deg,#2d0042,#4a0066)">🎨<div class="proj-img-overlay"></div></div>
+
+    <!-- Royal Rangers -->
+    <div class="proj-card" data-cat="pwa webapp">
+      <div class="proj-img" style="background:linear-gradient(135deg,#1a0a2e,#2d1a4a)">⚜️<div class="proj-img-overlay"></div></div>
       <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">Figma</span><span class="proj-tag">Illustrator</span><span class="proj-tag">Branding</span></div>
-        <h3>Teks Tech Brand Identity</h3>
-        <p>Complete brand system including logo design, color palette, typography, social media templates, and brand guidelines.</p>
+        <div class="proj-tags"><span class="proj-tag">PWA</span><span class="proj-tag">Firebase</span><span class="proj-tag">Paystack</span><span class="proj-tag">jsPDF</span><span class="proj-tag">QRCode.js</span></div>
+        <h3>Royal Rangers Bayelsa — Management Portal</h3>
+        <p>Production-ready PWA for Royal Rangers Bayelsa State Command. Handles member registration with auto-generated IDs, role-based dashboards (Super Admin → Outpost), live Paystack event payments, training library, attendance tracking, and downloadable PDF membership cards with QR verification.</p>
         <div class="proj-links">
-          <button class="proj-btn demo">👁 View Work</button>
-          <button class="proj-btn gh"><i class="ti ti-link"></i> Behance</button>
-        </div>
-      </div>
-    </div>
-    <div class="proj-card" data-cat="web">
-      <div class="proj-img" style="background:linear-gradient(135deg,#003d2b,#006644)">🏥<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span class="proj-tag">MySQL</span></div>
-        <h3>HealthLink — Hospital Management</h3>
-        <p>Comprehensive hospital management system with patient records, appointment scheduling, and staff management.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo">🚀 Live Demo</button>
+          <button class="proj-btn demo" onclick="window.open('https://royalrangerbayelsastate.vercel.app/','_blank')">🚀 Live Demo</button>
           <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
         </div>
       </div>
     </div>
-    <div class="proj-card" data-cat="data">
-      <div class="proj-img" style="background:linear-gradient(135deg,#1a0533,#2d0d66)">🤖<div class="proj-img-overlay"></div></div>
+
+    <!-- Joelle-Tan -->
+    <div class="proj-card" data-cat="fintech pwa">
+      <div class="proj-img" style="background:linear-gradient(135deg,#1a1400,#3d2f00)">🌾<div class="proj-img-overlay"></div></div>
       <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Claude AI</span><span class="proj-tag">Streamlit</span></div>
-        <h3>AI Study Assistant</h3>
-        <p>Intelligent study assistant powered by Claude API with document analysis, quiz generation, and personalized learning paths.</p>
+        <div class="proj-tags"><span class="proj-tag">PWA</span><span class="proj-tag">Firebase</span><span class="proj-tag">Chart.js</span><span class="proj-tag">SheetJS</span><span class="proj-tag">AgriTech</span></div>
+        <h3>Joelle-Tan Ltd — Farm Investment Platform</h3>
+        <p>Full-stack PWA for a Nigerian agri-investment company. Manages farm packages, investor contributions, ROI calculations, and financial records. Dual-role auth (Admin & Investor), product subscription system, real-time Firebase sync, Excel/PDF exports, and full PWA installability on desktop & mobile.</p>
         <div class="proj-links">
-          <button class="proj-btn demo">🚀 Try It</button>
-          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
+          <button class="proj-btn demo" onclick="window.open('https://bigman-teks.github.io/Joelletanltd-farm/','_blank')">🚀 Live Demo</button>
+          <button class="proj-btn gh" onclick="window.open('https://github.com/bigman-teks/Joelletanltd-farm','_blank')"><i class="ti ti-brand-github"></i> GitHub</button>
         </div>
       </div>
     </div>
-    <div class="proj-card" data-cat="web">
-      <div class="proj-img" style="background:linear-gradient(135deg,#002d3d,#004d6e)">📱<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">WordPress</span><span class="proj-tag">WooCommerce</span><span class="proj-tag">SEO</span></div>
-        <h3>NaijaMart — WordPress Store</h3>
-        <p>Fully customized WooCommerce store with payment gateway integration, inventory system, and SEO optimization.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo">🚀 Live Demo</button>
-          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
