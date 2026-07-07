@@ -3,290 +3,332 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Big Teks (Tekite Emmanuel Wonyinson) — Web Designer, Graphic Designer & Data Analyst. Portfolio showcasing tech-driven digital solutions."/>
 <title>Big Teks | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#0a0a0f;--bg2:#0f0f1a;--bg3:#141428;--card:#1a1a2e;
---accent:#4f8ef7;--accent2:#7c3aed;--accent3:#06d6a0;--neon:#00f5ff;
---text:#e8e8f0;--text2:#a0a0c0;--text3:#606080;
---border:#2a2a4a;--glow:rgba(79,142,247,0.15);
-}
-.light{
---bg:#f0f4ff;--bg2:#e8eeff;--bg3:#f8f9ff;--card:#ffffff;
---accent:#2563eb;--accent2:#7c3aed;--accent3:#059669;--neon:#0ea5e9;
---text:#0f0f1f;--text2:#374151;--text3:#6b7280;
---border:#dde3f5;--glow:rgba(37,99,235,0.08);
-}
+:root{--bg:#02040f;--bg2:#060914;--card:#0d1117;--card2:#111827;--accent:#4f8ef7;--accent2:#7c3aed;--neon:#00f5d4;--text:#f0f4ff;--text2:#8892b0;--text3:#4a5568;--border:rgba(255,255,255,0.06);--glow:rgba(79,142,247,0.2)}
+.light{--bg:#f8faff;--bg2:#eef2ff;--card:#fff;--card2:#f1f5ff;--text:#0f172a;--text2:#475569;--text3:#94a3b8;--border:rgba(0,0,0,0.07);--glow:rgba(79,142,247,0.1)}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .4s,color .4s}
+#hero-canvas{position:absolute;inset:0;z-index:0}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
-.light nav{background:rgba(240,244,255,0.88)}
-.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(2,4,15,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.light nav.scrolled{background:rgba(248,250,255,0.92)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.5rem;background:linear-gradient(135deg,#4f8ef7,#7c3aed,#00f5d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-links{display:flex;gap:1.8rem;list-style:none}
-.nav-links a{font-size:.875rem;color:var(--text2);font-weight:500;transition:color .2s}
+.nav-links a{font-size:.8rem;color:var(--text2);font-weight:500;letter-spacing:.04em;text-transform:uppercase;transition:color .2s;text-decoration:none}
 .nav-links a:hover{color:var(--accent)}
-.nav-actions{display:flex;gap:.75rem;align-items:center}
-.btn-nav{padding:.5rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;border:1.5px solid var(--accent);color:var(--accent);background:transparent}
-.btn-nav:hover{background:var(--accent);color:#fff}
-.theme-btn{background:none;border:1.5px solid var(--border);border-radius:8px;padding:.5rem;cursor:pointer;color:var(--text2);font-size:1.1rem;transition:all .2s;display:flex}
-.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.4rem}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
-.mobile-menu{display:none;position:fixed;top:65px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1.2rem;z-index:99}
-.mobile-menu a{color:var(--text2);font-size:1rem;font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--border)}
-
-/* SECTIONS */
-section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+.nav-right{display:flex;gap:.6rem;align-items:center}
+.btn-hire{padding:.5rem 1.3rem;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;transition:all .2s}
+.btn-hire:hover{opacity:.85;transform:translateY(-1px)}
+.theme-toggle{background:none;border:1px solid var(--border);border-radius:8px;padding:.45rem;cursor:pointer;color:var(--text2);font-size:1rem;display:flex;align-items:center;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent)}
+.admin-btn{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:.45rem .9rem;cursor:pointer;color:#f59e0b;font-size:.75rem;font-weight:700;letter-spacing:.04em;transition:all .2s}
+.admin-btn:hover{background:rgba(245,158,11,0.2)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.4rem}
+.ham span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1rem;z-index:999}
+.mob-menu a{color:var(--text2);font-size:.95rem;padding:.5rem 0;border-bottom:1px solid var(--border);text-decoration:none}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 4rem;max-width:100%;position:relative;overflow:hidden}
-.hero-bg{position:fixed;inset:0;z-index:-1;background:var(--bg)}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb 8s ease-in-out infinite}
-.orb1{width:500px;height:500px;background:rgba(79,142,247,0.12);top:-100px;left:-100px;animation-delay:0s}
-.orb2{width:400px;height:400px;background:rgba(124,58,237,0.1);bottom:-50px;right:-50px;animation-delay:3s}
-.orb3{width:300px;height:300px;background:rgba(6,214,160,0.08);top:50%;left:50%;animation-delay:6s}
-@keyframes orb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,20px) scale(1.1)}}
-.hero-inner{position:relative;max-width:850px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.3);border-radius:100px;padding:.4rem 1rem;font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:1.5rem;animation:fadeUp .6s ease both}
-.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent3);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:.5rem;animation:fadeUp .7s .1s ease both}
-.gradient-text{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--neon) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-title{font-size:clamp(1rem,2.5vw,1.35rem);color:var(--text2);margin-bottom:1.25rem;animation:fadeUp .7s .2s ease both;font-weight:500}
-.hero-desc{font-size:1rem;color:var(--text3);max-width:580px;margin:0 auto 2.5rem;line-height:1.8;animation:fadeUp .7s .3s ease both}
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}
+.hero-content{position:relative;z-index:10;max-width:860px;padding:0 1.5rem;padding-top:5rem}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.25);border-radius:100px;padding:.45rem 1.1rem;font-size:.78rem;color:var(--accent);font-weight:600;margin-bottom:2rem;letter-spacing:.05em;text-transform:uppercase;animation:fadeUp .7s ease both}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:.6rem;animation:fadeUp .7s .1s ease both}
+.grad{background:linear-gradient(135deg,#4f8ef7 0%,#7c3aed 40%,#00f5d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--text2);margin-bottom:1.25rem;animation:fadeUp .7s .2s ease both}
+.hero-desc{font-size:1.05rem;color:var(--text3);max-width:600px;margin:0 auto 3rem;line-height:1.85;animation:fadeUp .7s .3s ease both}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s .4s ease both}
-.btn-primary{padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;transition:transform .2s,box-shadow .2s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(79,142,247,0.4)}
-.btn-outline{padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:transparent;border:1.5px solid var(--border);color:var(--text);transition:all .2s}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;animation:fadeUp .7s .6s ease both}
-.stat{text-align:center}
-.stat-num{font-size:2rem;font-weight:800;color:var(--accent);font-family:'Space Grotesk',sans-serif}
-.stat-label{font-size:.8rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.05em}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--text3);font-size:.75rem;animation:fadeUp .7s 1s ease both}
-.scroll-hint i{animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.btn-primary{padding:.9rem 2.2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:linear-gradient(135deg,#4f8ef7,#7c3aed);color:#fff;border:none;transition:all .25s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(79,142,247,0.35)}
+.btn-outline{padding:.9rem 2.2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:transparent;border:1px solid var(--border);color:var(--text);transition:all .25s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:3.5rem;justify-content:center;margin-top:5rem;animation:fadeUp .7s .6s ease both}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent)}
+.stat-label{font-size:.75rem;color:var(--text3);margin-top:.2rem;text-transform:uppercase;letter-spacing:.08em}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.scroll-cue{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text3);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;animation:fadeUp .7s 1s ease both}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.4}}
 
-/* SECTION TITLES */
-.section-header{text-align:center;margin-bottom:3.5rem}
-.section-tag{display:inline-block;font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem;background:rgba(79,142,247,0.1);padding:.3rem .9rem;border-radius:100px;border:1px solid rgba(79,142,247,0.25)}
-.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:1rem}
-.section-sub{color:var(--text2);font-size:1rem;max-width:520px;margin:0 auto;line-height:1.7}
-.divider{width:50px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;margin:1rem auto 0}
+/* SECTIONS */
+.section{padding:7rem 2rem;max-width:1200px;margin:0 auto}
+.section-bg{background:var(--bg2);padding:7rem 0}
+.inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.75rem;background:rgba(79,142,247,0.08);padding:.3rem .9rem;border-radius:100px;border:1px solid rgba(79,142,247,0.2)}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;margin-bottom:1rem;letter-spacing:-.02em}
+.section-sub{color:var(--text2);font-size:1rem;max-width:520px;line-height:1.8}
+.center{text-align:center;margin:0 auto}
+.divbar{width:48px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;margin:.9rem auto 0}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:center}
-.avatar-wrap{position:relative;display:flex;justify-content:center}
-.avatar-ring{width:280px;height:280px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:4px;display:flex;align-items:center;justify-content:center}
-.avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:5rem;font-weight:800;color:var(--accent);font-family:'Space Grotesk',sans-serif}
-.avatar-badge{position:absolute;bottom:10px;right:10px;background:var(--accent3);color:#000;font-weight:700;font-size:.75rem;padding:.4rem .9rem;border-radius:100px}
-.about-text h2{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;margin-bottom:1rem}
-.about-text p{color:var(--text2);line-height:1.9;margin-bottom:1rem;font-size:.975rem}
-.about-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0}
-.pill{padding:.35rem .85rem;border-radius:100px;font-size:.8rem;font-weight:600;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.25);color:var(--accent)}
-.mission-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-top:1.5rem;border-left:3px solid var(--accent)}
-.mission-box h4{font-weight:700;margin-bottom:.5rem;color:var(--accent);font-size:.9rem;text-transform:uppercase;letter-spacing:.05em}
-.mission-box p{color:var(--text2);font-size:.9rem;line-height:1.7;margin:0}
+.about-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:5rem;align-items:center;margin-top:4rem}
+.avatar-wrap{display:flex;justify-content:center;position:relative}
+.avatar-outer{width:300px;height:300px;border-radius:50%;position:relative}
+.avatar-ring-anim{position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(from 0deg,#4f8ef7,#7c3aed,#00f5d4,#4f8ef7);animation:spin 4s linear infinite}
+.avatar-inner-wrap{position:absolute;inset:4px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer}
+.avatar-inner-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%}
+.avatar-initials{font-family:'Space Grotesk',sans-serif;font-size:5rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.avatar-badge{position:absolute;bottom:8px;right:0;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:700;font-size:.72rem;padding:.4rem 1rem;border-radius:100px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float-card{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem}
+.fc1{top:10px;left:-20px;animation:floatA 3s ease-in-out infinite}
+.fc2{bottom:20px;right:-20px;animation:floatB 3.5s ease-in-out infinite}
+@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.fc-icon{font-size:1.4rem}.fc-text{font-size:.75rem;font-weight:600;color:var(--text)}.fc-sub{font-size:.65rem;color:var(--text3);margin-top:.1rem}
+.about-text h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;margin-bottom:1rem}
+.about-text p{color:var(--text2);line-height:1.9;margin-bottom:1rem;font-size:.97rem}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0}
+.pill{padding:.35rem .9rem;border-radius:100px;font-size:.78rem;font-weight:600;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.2);color:var(--accent)}
+.mission{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;margin-top:1.5rem;border-left:3px solid var(--accent)}
+.mission h4{font-weight:700;font-size:.8rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+.mission p{color:var(--text2);font-size:.88rem;line-height:1.75;margin:0}
 
 /* SERVICES */
-#services{background:var(--bg2)}
-.services-wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.svc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden;cursor:default}
-.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:0;transition:.3s}
-.svc-card:hover{transform:translateY(-6px);border-color:var(--accent)}
-.svc-card:hover::before{opacity:.04}
-.svc-icon{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,rgba(79,142,247,0.15),rgba(124,58,237,0.15));display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin-bottom:1.25rem;transition:.3s}
-.svc-card:hover .svc-icon{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-top:3.5rem}
+.svc-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;position:relative;overflow:hidden;transition:all .35s}
+.svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:translateX(-100%);transition:.5s}
+.svc-card:hover{transform:translateY(-8px);border-color:rgba(79,142,247,.3)}
+.svc-card:hover::after{transform:translateX(100%)}
+.svc-icon-wrap{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(79,142,247,.12),rgba(124,58,237,.12));display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1.25rem;transition:.35s}
+.svc-card:hover .svc-icon-wrap{background:linear-gradient(135deg,var(--accent),var(--accent2))}
 .svc-card h3{font-weight:700;margin-bottom:.6rem;font-size:1.05rem}
-.svc-card p{color:var(--text2);font-size:.875rem;line-height:1.7}
-.svc-card .svc-tag{display:inline-block;margin-top:.75rem;font-size:.75rem;font-weight:600;color:var(--accent3);background:rgba(6,214,160,0.1);padding:.2rem .7rem;border-radius:100px;border:1px solid rgba(6,214,160,0.2)}
+.svc-card p{color:var(--text2);font-size:.875rem;line-height:1.75;margin-bottom:.75rem}
+.svc-stack{font-size:.72rem;font-weight:600;color:var(--neon);background:rgba(0,245,212,.06);padding:.25rem .75rem;border-radius:100px;border:1px solid rgba(0,245,212,.15);display:inline-block}
 
-/* PORTFOLIO */
-.filter-tabs{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
-.filter-tab{padding:.5rem 1.25rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--text2);transition:all .2s}
-.filter-tab.active,.filter-tab:hover{border-color:var(--accent);color:var(--accent);background:rgba(79,142,247,0.08)}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
-.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s}
-.proj-card:hover{transform:translateY(-5px);border-color:var(--accent)}
-.proj-img{height:180px;background:linear-gradient(135deg,var(--bg3),var(--card));display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
-.proj-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))}
-.proj-body{padding:1.25rem}
-.proj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem}
-.proj-tag{font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:6px;background:rgba(79,142,247,0.12);color:var(--accent)}
-.proj-body h3{font-weight:700;margin-bottom:.5rem;font-size:1rem}
-.proj-body p{color:var(--text2);font-size:.85rem;line-height:1.6;margin-bottom:1rem}
+/* PROJECTS */
+.filter-row{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin:2.5rem 0}
+.f-btn{padding:.5rem 1.25rem;border-radius:100px;font-size:.8rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:all .2s}
+.f-btn.active,.f-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(79,142,247,.08)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(79,142,247,.3)}
+.proj-hero{height:190px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
+.proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.6))}
+.proj-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.proj-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.8rem}
+.ptag{font-size:.68rem;font-weight:600;padding:.2rem .6rem;border-radius:6px;background:rgba(79,142,247,.1);color:var(--accent);border:1px solid rgba(79,142,247,.2)}
+.proj-body h3{font-weight:700;margin-bottom:.5rem;font-size:1rem;line-height:1.4}
+.proj-body p{color:var(--text2);font-size:.83rem;line-height:1.7;margin-bottom:1.2rem;flex:1}
 .proj-links{display:flex;gap:.6rem}
-.proj-btn{flex:1;padding:.5rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;text-align:center;transition:all .2s}
-.proj-btn.demo{background:var(--accent);color:#fff;border:none}
-.proj-btn.demo:hover{opacity:.85}
-.proj-btn.gh{background:transparent;border:1.5px solid var(--border);color:var(--text2)}
-.proj-btn.gh:hover{border-color:var(--accent);color:var(--accent)}
+.plnk{flex:1;padding:.55rem;border-radius:9px;font-size:.78rem;font-weight:700;cursor:pointer;text-align:center;transition:all .2s;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.plnk.demo{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none}
+.plnk.demo:hover{opacity:.85}
+.plnk.gh{background:transparent;border:1px solid var(--border);color:var(--text2)}
+.plnk.gh:hover{border-color:var(--accent);color:var(--accent)}
 
 /* SKILLS */
-#skills{background:var(--bg2)}
-.skills-wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.skill-item{margin-bottom:1.5rem}
-.skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
-.skill-name{font-weight:600;font-size:.9rem}
-.skill-pct{font-size:.85rem;color:var(--accent);font-weight:700}
-.skill-bar{height:6px;background:var(--border);border-radius:6px;overflow:hidden}
-.skill-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s ease}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 5rem;margin-top:3.5rem}
+.skill-item{margin-bottom:.5rem}
+.sk-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem}
+.sk-name{font-weight:600;font-size:.9rem}
+.sk-pct{font-size:.82rem;color:var(--accent);font-weight:700;font-family:'Space Grotesk',sans-serif}
+.sk-track{height:5px;background:var(--border);border-radius:5px;overflow:hidden}
+.sk-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
 
 /* TIMELINE */
-.timeline{position:relative;padding-left:2.5rem}
-.timeline::before{content:'';position:absolute;left:.75rem;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2))}
+.tl{position:relative;padding-left:2.5rem;margin-top:3.5rem}
+.tl::before{content:'';position:absolute;left:.85rem;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
 .tl-item{position:relative;margin-bottom:2.5rem}
-.tl-dot{position:absolute;left:-2.1rem;top:.3rem;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:3px solid var(--bg)}
-.tl-date{font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
-.tl-content{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
-.tl-content h3{font-weight:700;margin-bottom:.4rem;font-size:1rem}
-.tl-content p{color:var(--text2);font-size:.875rem;line-height:1.7;margin:0}
-.achieve-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:3rem}
-.achieve-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;align-items:flex-start;gap:.9rem}
-.achieve-icon{font-size:1.6rem;color:var(--accent);flex-shrink:0}
-.achieve-card h4{font-weight:700;font-size:.9rem;margin-bottom:.25rem}
-.achieve-card p{color:var(--text2);font-size:.8rem;line-height:1.5;margin:0}
+.tl-dot{position:absolute;left:-2rem;top:.4rem;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 12px var(--glow);border:2px solid var(--bg)}
+.tl-date{font-size:.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+.tl-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem}
+.tl-box:hover{border-color:rgba(79,142,247,.3)}
+.tl-box h3{font-weight:700;margin-bottom:.4rem;font-size:1rem}
+.tl-box p{color:var(--text2);font-size:.875rem;line-height:1.75;margin:0}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:3rem}
+.ach-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;display:flex;align-items:flex-start;gap:1rem;transition:all .25s}
+.ach-card:hover{transform:translateY(-4px);border-color:rgba(79,142,247,.3)}
+.ach-icon{font-size:1.7rem;flex-shrink:0}
+.ach-card h4{font-weight:700;font-size:.88rem;margin-bottom:.25rem}
+.ach-card p{color:var(--text2);font-size:.78rem;line-height:1.5;margin:0}
 
 /* TESTIMONIALS */
-.testi-wrap{max-width:900px;margin:0 auto}
-.testi-slider{position:relative;overflow:hidden;border-radius:16px}
-.testi-track{display:flex;transition:transform .5s ease}
-.testi-slide{min-width:100%;padding:2.5rem;background:var(--card);border:1px solid var(--border);border-radius:16px}
-.testi-quote{font-size:3rem;color:var(--accent);opacity:.3;line-height:1;margin-bottom:.5rem;font-family:Georgia,serif}
-.testi-text{font-size:1.05rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;font-style:italic}
+.testi-wrap{max-width:800px;margin:3.5rem auto 0}
+.testi-track-wrap{overflow:hidden;border-radius:18px}
+.testi-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.testi-slide{min-width:100%;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2.5rem}
+.tq{font-size:3.5rem;line-height:1;color:var(--accent);opacity:.25;font-family:Georgia,serif;margin-bottom:.5rem}
+.testi-text{font-size:1.05rem;color:var(--text);line-height:1.85;margin-bottom:1.75rem;font-style:italic}
 .testi-author{display:flex;align-items:center;gap:1rem}
-.testi-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:#fff}
-.testi-name{font-weight:700;font-size:.95rem}
-.testi-role{font-size:.8rem;color:var(--text3)}
-.testi-stars{color:#facc15;font-size:.9rem;margin-top:.2rem}
-.testi-nav{display:flex;justify-content:center;gap:.75rem;margin-top:1.5rem}
-.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:.3s}
-.testi-dot.active{background:var(--accent);width:24px}
-.testi-arrows{display:flex;justify-content:center;gap:1rem;margin-top:1rem}
-.testi-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);transition:all .2s}
-.testi-btn:hover{border-color:var(--accent);color:var(--accent)}
+.t-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;color:#fff;flex-shrink:0}
+.t-name{font-weight:700;font-size:.95rem}.t-role{font-size:.78rem;color:var(--text3);margin-top:.15rem}.t-stars{color:#f59e0b;font-size:.85rem;margin-top:.2rem}
+.testi-nav{display:flex;justify-content:center;gap:.6rem;margin-top:1.5rem}
+.t-dot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s}
+.t-dot.active{background:var(--accent);width:22px}
+.testi-arrows{display:flex;justify-content:center;gap:.8rem;margin-top:.8rem}
+.t-arr{background:var(--card);border:1px solid var(--border);border-radius:9px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);font-size:1.1rem;transition:all .2s}
+.t-arr:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:all .3s}
+.blog-card:hover{transform:translateY(-6px);border-color:rgba(79,142,247,.3)}
+.blog-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative;overflow:hidden}
+.blog-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.blog-img .emoji{position:relative;z-index:1}
+.blog-body{padding:1.25rem}
+.blog-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.blog-cat{font-size:.68rem;font-weight:700;color:var(--accent);background:rgba(79,142,247,.08);padding:.2rem .7rem;border-radius:100px;border:1px solid rgba(79,142,247,.2)}
+.blog-date{font-size:.72rem;color:var(--text3)}
+.blog-card h3{font-weight:700;font-size:.95rem;margin-bottom:.5rem;line-height:1.45}
+.blog-card p{color:var(--text2);font-size:.83rem;line-height:1.65}
+.blog-read{display:flex;align-items:center;gap:.3rem;margin-top:.8rem;font-size:.8rem;font-weight:600;color:var(--accent)}
+
+/* ARTICLE READER MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.article-modal{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative}
+.article-modal h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:.5rem;line-height:1.25}
+.article-modal .art-meta{color:var(--text3);font-size:.82rem;margin-bottom:1.5rem;display:flex;gap:1rem;flex-wrap:wrap}
+.article-modal .art-content{color:var(--text2);line-height:1.9;font-size:.97rem;white-space:pre-wrap}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--card2);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--text2);transition:all .2s}
+.modal-close:hover{border-color:var(--accent);color:var(--accent)}
 
 /* CONTACT */
-#contact{background:var(--bg2)}
-.contact-wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
-.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem}
-.contact-info h3{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:1rem}
-.contact-info p{color:var(--text2);line-height:1.8;margin-bottom:2rem;font-size:.95rem}
-.contact-items{display:flex;flex-direction:column;gap:1rem}
-.contact-item{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;transition:border-color .2s}
-.contact-item:hover{border-color:var(--accent)}
-.ci-icon{width:42px;height:42px;border-radius:10px;background:rgba(79,142,247,0.1);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;flex-shrink:0}
-.ci-label{font-size:.75rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.ci-val{font-size:.9rem;font-weight:500;color:var(--text)}
-.social-row{display:flex;gap:.75rem;margin-top:1.5rem}
-.soc-btn{width:42px;height:42px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:1.1rem;cursor:pointer;transition:all .2s}
-.soc-btn:hover{border-color:var(--accent);color:var(--accent)}
-.contact-form{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;margin-top:3.5rem}
+.contact-info h3{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:1rem}
+.contact-info p{color:var(--text2);line-height:1.85;margin-bottom:2rem;font-size:.95rem}
+.c-items{display:flex;flex-direction:column;gap:.8rem}
+.c-item{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;transition:border-color .2s;text-decoration:none}
+.c-item:hover{border-color:rgba(79,142,247,.35)}
+.ci-icon{width:40px;height:40px;border-radius:10px;background:rgba(79,142,247,.08);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;flex-shrink:0}
+.ci-label{font-size:.68rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.ci-val{font-size:.88rem;font-weight:500;color:var(--text)}
+.soc-row{display:flex;gap:.6rem;margin-top:1.5rem;flex-wrap:wrap}
+.soc-btn{width:40px;height:40px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:1.05rem;cursor:pointer;transition:all .2s;text-decoration:none}
+.soc-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2.25rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
-.form-group label{font-size:.8rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.04em}
-.form-group input,.form-group textarea,.form-group select{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-size:.9rem;font-family:'Inter',sans-serif;transition:border-color .2s;resize:none;outline:none}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
-.form-group textarea{min-height:120px}
-.btn-submit{width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.fg{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1rem}
+.fg label{font-size:.72rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.07em}
+.fg input,.fg textarea,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-size:.88rem;font-family:'Inter',sans-serif;transition:border-color .2s;resize:none;outline:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent)}
+.fg textarea{min-height:110px}
+.btn-submit{width:100%;padding:1rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem}
 .btn-submit:hover{opacity:.9;transform:translateY(-2px)}
-.wa-btn{display:flex;align-items:center;justify-content:center;gap:.75rem;width:100%;padding:.85rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;background:#25d366;color:#fff;border:none;margin-top:.75rem;transition:all .2s}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:.65rem;width:100%;padding:.85rem;border-radius:10px;font-weight:700;font-size:.9rem;cursor:pointer;background:#25d366;color:#fff;border:none;margin-top:.75rem;transition:all .2s}
 .wa-btn:hover{opacity:.9;transform:translateY(-2px)}
 
 /* FOOTER */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem 1.5rem}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 2rem 2rem}
 .footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
 .footer-brand .logo{font-size:1.6rem;display:block;margin-bottom:.75rem}
-.footer-brand p{color:var(--text3);font-size:.875rem;line-height:1.7;max-width:280px}
-.footer-links h4{font-weight:700;margin-bottom:1rem;font-size:.95rem}
+.footer-brand p{color:var(--text3);font-size:.85rem;line-height:1.75;max-width:270px}
+.footer-links h4{font-weight:700;margin-bottom:1rem;font-size:.9rem}
 .footer-links ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-.footer-links li a{color:var(--text3);font-size:.875rem;transition:color .2s}
+.footer-links li a{color:var(--text3);font-size:.85rem;transition:color .2s;text-decoration:none}
 .footer-links li a:hover{color:var(--accent)}
-.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap:.5rem}
-.footer-copy{color:var(--text3);font-size:.8rem}
-.visitor-count{color:var(--text3);font-size:.8rem;display:flex;align-items:center;gap:.4rem}
-.vis-num{color:var(--accent);font-weight:700}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.footer-copy{color:var(--text3);font-size:.78rem}
+.vis-count{color:var(--text3);font-size:.78rem;display:flex;align-items:center;gap:.4rem}
+.vis-num{color:var(--accent);font-weight:700;font-family:'Space Grotesk',sans-serif}
 
 /* CHATBOT */
-.chat-fab{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;box-shadow:0 4px 20px rgba(79,142,247,0.4);z-index:200;transition:transform .2s}
+.chat-fab{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;box-shadow:0 4px 24px rgba(79,142,247,.45);z-index:500;transition:transform .2s}
 .chat-fab:hover{transform:scale(1.1)}
-.chat-window{position:fixed;bottom:5.5rem;right:2rem;width:320px;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;z-index:200;box-shadow:0 20px 60px rgba(0,0,0,.4);display:none;flex-direction:column}
+.chat-window{position:fixed;bottom:5.5rem;right:2rem;width:320px;background:var(--card2);border:1px solid var(--border);border-radius:18px;overflow:hidden;z-index:500;box-shadow:0 24px 80px rgba(0,0,0,.4);display:none;flex-direction:column}
 .chat-window.open{display:flex}
-.chat-head{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:1rem;display:flex;align-items:center;gap:.75rem;color:#fff}
-.chat-head .ch-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1rem}
-.chat-head h4{font-size:.95rem;font-weight:700}
-.chat-head p{font-size:.75rem;opacity:.8}
+.chat-head{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:1rem 1.25rem;display:flex;align-items:center;gap:.75rem;color:#fff}
+.ch-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.chat-head h4{font-size:.92rem;font-weight:700}.chat-head p{font-size:.72rem;opacity:.8;margin-top:.1rem}
 .chat-close{margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;font-size:1.1rem}
-.chat-body{height:240px;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem}
-.chat-msg{max-width:80%;padding:.6rem .9rem;border-radius:12px;font-size:.85rem;line-height:1.5}
-.chat-msg.bot{background:var(--bg2);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
-.chat-msg.user{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-.chat-input-row{padding:.75rem;border-top:1px solid var(--border);display:flex;gap:.5rem}
-.chat-input-row input{flex:1;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:.5rem .75rem;font-size:.85rem;color:var(--text);outline:none;font-family:'Inter',sans-serif}
-.chat-input-row input:focus{border-color:var(--accent)}
-.chat-send{background:var(--accent);border:none;border-radius:8px;padding:.5rem .75rem;color:#fff;cursor:pointer;font-size:.9rem}
+.chat-body{height:230px;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.65rem}
+.cmsg{max-width:82%;padding:.6rem .9rem;border-radius:12px;font-size:.83rem;line-height:1.55}
+.cmsg.bot{background:var(--card);color:var(--text);align-self:flex-start;border-bottom-left-radius:3px}
+.cmsg.user{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.chat-in-row{padding:.75rem;border-top:1px solid var(--border);display:flex;gap:.5rem}
+.chat-in-row input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;font-size:.83rem;color:var(--text);outline:none;font-family:'Inter',sans-serif}
+.chat-in-row input:focus{border-color:var(--accent)}
+.chat-send{background:var(--accent);border:none;border-radius:8px;padding:.5rem .75rem;color:#fff;cursor:pointer;font-size:.9rem;display:flex;align-items:center}
 
-/* BLOG */
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.blog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer}
-.blog-card:hover{transform:translateY(-5px);border-color:var(--accent)}
-.blog-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:linear-gradient(135deg,var(--bg2),var(--bg3))}
-.blog-body{padding:1.25rem}
-.blog-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
-.blog-cat{font-size:.7rem;font-weight:700;color:var(--accent);background:rgba(79,142,247,0.1);padding:.2rem .7rem;border-radius:100px;border:1px solid rgba(79,142,247,0.2)}
-.blog-date{font-size:.75rem;color:var(--text3)}
-.blog-card h3{font-weight:700;font-size:.95rem;margin-bottom:.5rem;line-height:1.4}
-.blog-card p{color:var(--text2);font-size:.83rem;line-height:1.6}
-.blog-read{display:flex;align-items:center;gap:.3rem;margin-top:.75rem;font-size:.8rem;font-weight:600;color:var(--accent)}
+/* ── ADMIN PANEL ── */
+.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(16px);z-index:3000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.admin-overlay.open{opacity:1;pointer-events:all}
+.admin-panel{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:820px;width:100%;max-height:92vh;overflow-y:auto;position:relative}
+.admin-header{background:linear-gradient(135deg,rgba(79,142,247,.12),rgba(124,58,237,.12));border-bottom:1px solid var(--border);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1;backdrop-filter:blur(12px)}
+.admin-header h2{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.3rem}
+.admin-tabs{display:flex;gap:.5rem;padding:1.5rem 2rem 0}
+.a-tab{padding:.6rem 1.25rem;border-radius:9px;font-size:.82rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);transition:all .2s}
+.a-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent}
+.admin-body{padding:1.5rem 2rem 2rem}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.afield{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem}
+.afield label{font-size:.72rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.07em}
+.afield input,.afield textarea,.afield select{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;resize:none;width:100%}
+.afield input:focus,.afield textarea:focus{border-color:var(--accent)}
+.afield textarea{min-height:160px}
+.arow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.a-btn{padding:.75rem 1.5rem;border-radius:10px;font-weight:700;font-size:.88rem;cursor:pointer;border:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+.a-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.a-btn.primary:hover{opacity:.88;transform:translateY(-1px)}
+.a-btn.danger{background:rgba(239,68,68,.12);color:#ef4444;border:1px solid rgba(239,68,68,.25)}
+.a-btn.danger:hover{background:rgba(239,68,68,.2)}
+.a-btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text2)}
+.a-btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.articles-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.25rem}
+.art-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.art-item-info h4{font-weight:700;font-size:.9rem;margin-bottom:.2rem}
+.art-item-info p{font-size:.78rem;color:var(--text3)}
+.art-item-actions{display:flex;gap:.5rem;flex-shrink:0}
+.cv-upload-zone{border:2px dashed var(--border);border-radius:14px;padding:3rem 2rem;text-align:center;cursor:pointer;transition:all .3s;margin-bottom:1.25rem}
+.cv-upload-zone:hover,.cv-upload-zone.drag{border-color:var(--accent);background:rgba(79,142,247,.04)}
+.cv-upload-zone .upload-icon{font-size:2.5rem;margin-bottom:.75rem}
+.cv-upload-zone h3{font-weight:700;margin-bottom:.4rem;font-size:1rem}
+.cv-upload-zone p{color:var(--text2);font-size:.85rem}
+.cv-current{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.cv-current-info{display:flex;align-items:center;gap:.75rem}
+.cv-icon{font-size:1.8rem}
+.cv-name{font-weight:600;font-size:.9rem}
+.cv-size{font-size:.75rem;color:var(--text3);margin-top:.15rem}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:.75rem 1.5rem;border-radius:10px;font-size:.88rem;font-weight:600;z-index:5000;transition:transform .4s cubic-bezier(.4,0,.2,1);white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.pwd-gate{padding:2rem;text-align:center}
+.pwd-gate h3{font-weight:700;margin-bottom:.5rem}
+.pwd-gate p{color:var(--text2);font-size:.88rem;margin-bottom:1.5rem}
+.pwd-row{display:flex;gap:.6rem;max-width:320px;margin:0 auto}
+.pwd-row input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:'Inter',sans-serif}
+.pwd-row input:focus{border-color:var(--accent)}
+.editor-tip{font-size:.78rem;color:var(--text3);margin-top:.5rem;line-height:1.6}
 
-/* DARK MODE TOGGLE ANIMATION */
-#darkToggle{transition:.2s}
+/* PHOTO UPLOAD HINT */
+.avatar-hint{position:absolute;inset:4px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;font-size:.72rem;font-weight:700;color:#fff;text-align:center;z-index:2;pointer-events:none}
+.avatar-inner-wrap:hover .avatar-hint{opacity:1}
 
-/* RESPONSIVE */
+/* CV DOWNLOAD BTN */
+#cvDownloadBtn{display:none}
+#cvDownloadBtn.visible{display:inline-flex}
+
 @media(max-width:768px){
-  .nav-links,.nav-actions .btn-nav{display:none}
-  .hamburger{display:flex}
-  .about-grid{grid-template-columns:1fr}
-  .avatar-wrap{margin-bottom:2rem}
-  .skills-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
+  nav{padding:.9rem 1.25rem}
+  .nav-links,.btn-hire{display:none}
+  .ham{display:flex}
+  .about-grid,.contact-grid,.skills-grid{grid-template-columns:1fr}
+  .form-row,.arow{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
-  .hero-stats{gap:1.5rem}
-  .stat-num{font-size:1.5rem}
+  .hero-stats{gap:2rem}
+  .stat-num{font-size:1.6rem}
   .chat-window{right:1rem;left:1rem;width:auto}
-  .footer-bottom{flex-direction:column;text-align:center;gap:.5rem}
-}
-@media(max-width:480px){
-  nav{padding:.875rem 1rem}
-  section{padding:4rem 1rem}
-  .hero-btns{flex-direction:column;align-items:center}
-  .btn-primary,.btn-outline{width:100%;text-align:center}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .fc1,.fc2{display:none}
+  .section{padding:5rem 1.25rem}
+  .admin-panel{border-radius:14px}
 }
 </style>
 </head>
 <body id="body">
 
-<!-- BACKGROUND -->
-<div class="hero-bg">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-</div>
-
 <!-- NAV -->
-<nav>
+<nav id="navbar">
   <div class="logo">Big Teks</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -297,471 +339,202 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem
     <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-actions">
-    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme" id="darkToggle"><i class="ti ti-moon"></i></button>
-    <a href="#contact"><button class="btn-nav">Hire Me</button></a>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
+  <div class="nav-right">
+    <button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
+    <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙</button>
+    <a href="#contact"><button class="btn-hire">Hire Me</button></a>
+    <div class="ham" onclick="toggleHam()"><span></span><span></span><span></span></div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#portfolio" onclick="closeMenu()">Projects</a>
-  <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#experience" onclick="closeMenu()">Experience</a>
-  <a href="#blog" onclick="closeMenu()">Blog</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#portfolio" onclick="closeMob()">Projects</a>
+  <a href="#skills" onclick="closeMob()">Skills</a>
+  <a href="#experience" onclick="closeMob()">Experience</a>
+  <a href="#blog" onclick="closeMob()">Blog</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-inner">
-    <div class="hero-badge"><span class="dot"></span> Available for Freelance & Full-time</div>
-    <h1 class="hero-name">Tekite Emmanuel <span class="gradient-text">Wonyinson</span></h1>
-    <p class="hero-title">Web Designer &nbsp;·&nbsp; Graphic Designer &nbsp;·&nbsp; Data Analyst</p>
-    <p class="hero-desc">Crafting premium digital experiences at the intersection of design, code, and data — passionate about building tech-driven solutions that inspire, engage, and deliver results.</p>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-pill"><span class="pulse-dot"></span>Available for Remote Work & Freelance</div>
+    <h1 class="hero-name">Tekite Emmanuel<br><span class="grad">Wonyinson</span></h1>
+    <p class="hero-role">Web Developer &nbsp;·&nbsp; Data Solutions Specialist &nbsp;·&nbsp; PWA Engineer</p>
+    <p class="hero-desc">Building military-grade systems, fintech platforms, and premium digital experiences — from Lagos to the world. Clean code. Real results.</p>
     <div class="hero-btns">
-      <a href="#contact"><button class="btn-primary"><i class="ti ti-briefcase" style="margin-right:.4rem"></i>Hire Me</button></a>
-      <a href="#portfolio"><button class="btn-outline"><i class="ti ti-grid-dots" style="margin-right:.4rem"></i>View Projects</button></a>
-      <a href="#" onclick="downloadCV()"><button class="btn-outline"><i class="ti ti-download" style="margin-right:.4rem"></i>Download CV</button></a>
+      <a href="#contact"><button class="btn-primary">🚀 Hire Me</button></a>
+      <a href="#portfolio"><button class="btn-outline">🗂 View Projects</button></a>
+      <button class="btn-outline" id="cvDownloadBtn" onclick="downloadCV()">📄 Download CV</button>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Projects Done</div></div>
-      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Happy Clients</div></div>
-      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
-      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Certifications</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Projects</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Live Systems</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Yrs Exp</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Remote Ready</div></div>
     </div>
   </div>
-  <div class="scroll-hint"><i class="ti ti-chevrons-down"></i><span>Scroll to explore</span></div>
+  <div class="scroll-cue"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section-header">
-    <div class="section-tag">About Me</div>
-    <h2 class="section-title">The Brain Behind <span class="gradient-text">Teks Tech</span></h2>
-    <div class="divider"></div>
-  </div>
+<section id="about" class="section">
+  <div class="tag">About Me</div>
+  <h2 class="section-title">The Brain Behind <span class="grad">Teks Tech</span></h2>
   <div class="about-grid">
     <div class="avatar-wrap">
-      <div class="avatar-ring">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/1px-Gatto_europeo4.jpg" alt="Tekite Emmanuel Wonyinson" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.parentNode.innerHTML='BT'"/>
+      <div class="avatar-outer">
+        <div class="avatar-ring-anim"></div>
+        <div class="avatar-inner-wrap" onclick="triggerPhotoUpload()" title="Click to upload your photo">
+          <img id="avatarImg" src="" alt="Big Teks" style="display:none"/>
+          <span class="avatar-initials" id="avatarInitials">BT</span>
+          <div class="avatar-hint">📷 Upload Photo</div>
+        </div>
+        <div class="avatar-badge">✅ Open to Work</div>
+        <div class="float-card fc1"><div class="fc-icon">🔥</div><div><div class="fc-text">5 Live Projects</div><div class="fc-sub">Production Deployed</div></div></div>
+        <div class="float-card fc2"><div class="fc-icon">⚡</div><div><div class="fc-text">Firebase Expert</div><div class="fc-sub">Auth · Firestore · PWA</div></div></div>
       </div>
-      <div class="avatar-badge">🚀 Open to Work</div>
     </div>
     <div class="about-text">
-      <h2>Hi, I'm <span class="gradient-text">Big Teks</span></h2>
-      <p>I'm Tekite Emmanuel Wonyinson — a multi-disciplinary tech creative based in Nigeria. I specialize in web design & development, graphic branding, and data analytics. My work bridges aesthetics and logic, transforming complex ideas into clean, impactful digital products.</p>
-      <p>Through <strong>Teks Tech</strong>, I help startups, businesses, and individuals establish powerful digital presences. I believe great technology should be both functional and beautiful — and I build with that philosophy at the core.</p>
-      <div class="about-pills">
-        <span class="pill">React Developer</span>
-        <span class="pill">UI/UX Designer</span>
-        <span class="pill">Data Analyst</span>
-        <span class="pill">WordPress Expert</span>
-        <span class="pill">Brand Designer</span>
-        <span class="pill">Python Dev</span>
-        <span class="pill">AI Enthusiast</span>
+      <h2>Hi, I'm <span class="grad">Big Teks</span></h2>
+      <p>I'm Tekite Emmanuel Wonyinson — a self-taught, results-driven web developer and data solutions specialist based in Nigeria. I build full-stack web applications, Firebase-powered PWAs, and intelligent data dashboards that solve real-world problems at scale.</p>
+      <p>From military-grade operations systems for the Nigerian Air Force to fintech platforms, agri-investment portals, and community savings apps — I deliver complete, production-ready digital solutions. Through <strong>Teks Tech</strong>, I bring world-class software engineering to every engagement.</p>
+      <div class="pills">
+        <span class="pill">Full-Stack Developer</span><span class="pill">Firebase / PWA</span><span class="pill">Node.js / Express</span><span class="pill">Data Analytics</span><span class="pill">WordPress</span><span class="pill">Excel / VBA</span><span class="pill">REST APIs</span><span class="pill">Paystack</span>
       </div>
-      <div class="mission-box">
-        <h4>Mission & Vision</h4>
-        <p>To empower businesses and individuals with world-class digital solutions through innovative design, clean code, and data-driven insights — making technology accessible to every corner of Africa and beyond.</p>
-      </div>
+      <div class="mission"><h4>Mission & Vision</h4><p>To empower businesses, government units, and individuals with world-class digital solutions — making advanced technology accessible across Nigeria and beyond through clean code and data-driven insights.</p></div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<div id="services" style="padding:5rem 0">
-  <div class="services-wrap">
-    <div class="section-header">
-      <div class="section-tag">What I Do</div>
-      <h2 class="section-title">Services <span class="gradient-text">Offered</span></h2>
-      <p class="section-sub">End-to-end digital solutions tailored to your business goals</p>
-      <div class="divider"></div>
-    </div>
-    <div class="cards-grid">
-      <div class="svc-card">
-        <div class="svc-icon"><i class="ti ti-device-laptop"></i></div>
-        <h3>Website Design & Development</h3>
-        <p>Stunning, responsive websites built with modern frameworks. From landing pages to full web apps — pixel-perfect and performance-optimized.</p>
-        <span class="svc-tag">HTML · CSS · React · JS</span>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><i class="ti ti-palette"></i></div>
-        <h3>Graphic Design & Branding</h3>
-        <p>Brand identities that speak volumes — logos, social media graphics, flyers, business cards, and complete brand kits.</p>
-        <span class="svc-tag">Illustrator · Figma · Canva</span>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><i class="ti ti-chart-bar"></i></div>
-        <h3>Data Analysis & Visualization</h3>
-        <p>Turn raw data into actionable insights with beautiful dashboards, interactive charts, and statistical reports.</p>
-        <span class="svc-tag">Python · Power BI · Excel</span>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><i class="ti ti-brand-wordpress"></i></div>
-        <h3>WordPress Development</h3>
-        <p>Custom WordPress sites, theme development, plugin configuration, and WooCommerce e-commerce solutions.</p>
-        <span class="svc-tag">WordPress · Elementor · PHP</span>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><i class="ti ti-layout-dashboard"></i></div>
-        <h3>Dashboard & Admin Systems</h3>
-        <p>Powerful admin panels and management systems with real-time analytics, role management, and data control.</p>
-        <span class="svc-tag">React · Firebase · Tailwind</span>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><i class="ti ti-brain"></i></div>
-        <h3>AI-Powered Solutions</h3>
-        <p>Intelligent chatbots, AI-integrated apps, and automation tools built on cutting-edge AI APIs and frameworks.</p>
-        <span class="svc-tag">Claude AI · OpenAI · Python</span>
-      </div>
+<div class="section-bg" id="services">
+  <div class="inner">
+    <div class="center"><div class="tag">What I Do</div><h2 class="section-title">Services <span class="grad">Offered</span></h2><p class="section-sub center">End-to-end digital solutions tailored to your goals.</p><div class="divbar"></div></div>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="svc-icon-wrap">💻</div><h3>Web App Development</h3><p>Full-stack web applications with real-time databases, authentication, and role-based access control. Responsive, fast, and production-ready.</p><span class="svc-stack">HTML · CSS · JavaScript · Firebase</span></div>
+      <div class="svc-card"><div class="svc-icon-wrap">📱</div><h3>Progressive Web Apps (PWA)</h3><p>Offline-capable PWAs installable on desktop and mobile. Service workers, web manifests, and full Android/iOS support.</p><span class="svc-stack">PWA · Service Worker · Manifest</span></div>
+      <div class="svc-card"><div class="svc-icon-wrap">⚙️</div><h3>Backend API Development</h3><p>RESTful APIs with Node.js and Express.js — JWT authentication, CRUD operations, database integration, and secure endpoints.</p><span class="svc-stack">Node.js · Express.js · JWT</span></div>
+      <div class="svc-card"><div class="svc-icon-wrap">📊</div><h3>Data Analysis & Dashboards</h3><p>Excel automation with VBA, KPI dashboards, Chart.js visualizations, and PDF/Excel export systems.</p><span class="svc-stack">Excel VBA · Chart.js · SheetJS</span></div>
+      <div class="svc-card"><div class="svc-icon-wrap">🌐</div><h3>WordPress Development</h3><p>Custom WordPress sites, WooCommerce stores, plugin development, and full SEO setup.</p><span class="svc-stack">WordPress · WooCommerce · PHP</span></div>
+      <div class="svc-card"><div class="svc-icon-wrap">💳</div><h3>Payment Integration</h3><p>Seamless Paystack integration for events, e-commerce, and subscriptions. Webhooks, verification, and transaction history.</p><span class="svc-stack">Paystack API · Firebase · JS</span></div>
     </div>
   </div>
 </div>
 
 <!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="section-header">
-    <div class="section-tag">Portfolio</div>
-    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-    <p class="section-sub">A selection of work that showcases creativity, technical depth, and impact</p>
-    <div class="divider"></div>
+<section id="portfolio" class="section">
+  <div class="center"><div class="tag">Portfolio</div><h2 class="section-title">Featured <span class="grad">Projects</span></h2><p class="section-sub center">Real, production-deployed systems built for real clients.</p><div class="divbar"></div></div>
+  <div class="filter-row">
+    <button class="f-btn active" onclick="filterP('all',this)">All Projects</button>
+    <button class="f-btn" onclick="filterP('pwa',this)">PWA</button>
+    <button class="f-btn" onclick="filterP('military',this)">Military / Ops</button>
+    <button class="f-btn" onclick="filterP('fintech',this)">FinTech</button>
+    <button class="f-btn" onclick="filterP('webapp',this)">Web Apps</button>
   </div>
-  <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterProj('all',this)">All Projects</button>
-    <button class="filter-tab" onclick="filterProj('pwa',this)">PWA</button>
-    <button class="filter-tab" onclick="filterProj('webapp',this)">Web Apps</button>
-    <button class="filter-tab" onclick="filterProj('fintech',this)">FinTech</button>
-    <button class="filter-tab" onclick="filterProj('military',this)">Military / Ops</button>
-  </div>
-  <div class="projects-grid" id="projGrid">
-
-    <!-- Pilot E-Flight Logbook -->
-    <div class="proj-card" data-cat="military">
-      <div class="proj-img" style="background:linear-gradient(135deg,#0a1628,#1a3a5c)">✈️<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">Firebase</span><span class="proj-tag">JavaScript</span></div>
-        <h3>115 SOG — Pilot E-Flight Logbook System</h3>
-        <p>Official digital platform for Nigerian Air Force pilots to record, track and manage their complete flying history. Cloud-synced with cumulative hours, medical cert expiry tracking, qualification monitoring, and official PDF/Excel report generation.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo" onclick="window.open('#','_blank')">🚀 Live Demo</button>
-          <button class="proj-btn gh">N/A</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Nita's Mul-Biz -->
-    <div class="proj-card" data-cat="pwa webapp">
-      <div class="proj-img" style="background:linear-gradient(135deg,#1a2e1a,#2d5c2d)">🛍️<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">HTML/CSS/JS</span><span class="proj-tag">Firebase</span><span class="proj-tag">PWA</span><span class="proj-tag">WhatsApp API</span></div>
-        <h3>Nita's Mul-Biz</h3>
-        <p>Multi-purpose Lagos business web app combining e-commerce, service bookings, and a community savings/contribution system. Features WhatsApp integration, PWA Android install support, offline capability, and Netlify HTTPS hosting.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo" onclick="window.open('https://nitas-mulbiz.vercel.app/','_blank')">🚀 Live Demo</button>
-          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- MDMAS -->
-    <div class="proj-card" data-cat="military pwa">
-      <div class="proj-img" style="background:linear-gradient(135deg,#0a1f0a,#0d2b0d)">🛡️<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">PWA</span><span class="proj-tag">Firebase</span><span class="proj-tag">Chart.js</span><span class="proj-tag">SheetJS</span></div>
-        <h3>NAF 115 SOG — MDMAS</h3>
-        <p>Military-grade PWA for the Nigerian Air Force 115 Special Operations Group. Manages mission logging, crew records, aircraft utilization and operational analytics in real time. Features role-based access, bulk Excel import, command-level reports, and full offline installability.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo" onclick="window.open('https://dcat-gamma.vercel.app/','_blank')">🚀 Live Demo</button>
-          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Royal Rangers -->
-    <div class="proj-card" data-cat="pwa webapp">
-      <div class="proj-img" style="background:linear-gradient(135deg,#1a0a2e,#2d1a4a)">⚜️<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">PWA</span><span class="proj-tag">Firebase</span><span class="proj-tag">Paystack</span><span class="proj-tag">jsPDF</span><span class="proj-tag">QRCode.js</span></div>
-        <h3>Royal Rangers Bayelsa — Management Portal</h3>
-        <p>Production-ready PWA for Royal Rangers Bayelsa State Command. Handles member registration with auto-generated IDs, role-based dashboards (Super Admin → Outpost), live Paystack event payments, training library, attendance tracking, and downloadable PDF membership cards with QR verification.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo" onclick="window.open('https://royalrangerbayelsastate.vercel.app/','_blank')">🚀 Live Demo</button>
-          <button class="proj-btn gh"><i class="ti ti-brand-github"></i> GitHub</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Joelle-Tan -->
-    <div class="proj-card" data-cat="fintech pwa">
-      <div class="proj-img" style="background:linear-gradient(135deg,#1a1400,#3d2f00)">🌾<div class="proj-img-overlay"></div></div>
-      <div class="proj-body">
-        <div class="proj-tags"><span class="proj-tag">PWA</span><span class="proj-tag">Firebase</span><span class="proj-tag">Chart.js</span><span class="proj-tag">SheetJS</span><span class="proj-tag">AgriTech</span></div>
-        <h3>Joelle-Tan Ltd — Farm Investment Platform</h3>
-        <p>Full-stack PWA for a Nigerian agri-investment company. Manages farm packages, investor contributions, ROI calculations, and financial records. Dual-role auth (Admin & Investor), product subscription system, real-time Firebase sync, Excel/PDF exports, and full PWA installability on desktop & mobile.</p>
-        <div class="proj-links">
-          <button class="proj-btn demo" onclick="window.open('https://bigman-teks.github.io/Joelletanltd-farm/','_blank')">🚀 Live Demo</button>
-          <button class="proj-btn gh" onclick="window.open('https://github.com/bigman-teks/Joelletanltd-farm','_blank')"><i class="ti ti-brand-github"></i> GitHub</button>
-        </div>
-      </div>
-    </div>
-
+  <div class="proj-grid" id="projGrid">
+    <div class="proj-card" data-cat="military"><div class="proj-hero" style="background:linear-gradient(135deg,#0a1628,#1a3a5c)">✈️<div class="proj-hero-overlay"></div></div><div class="proj-body"><div class="proj-tags"><span class="ptag">HTML/CSS/JS</span><span class="ptag">Firebase</span><span class="ptag">PDF Export</span></div><h3>115 SOG — Pilot E-Flight Logbook System</h3><p>Official NAF digital platform for Nigerian Air Force pilots. Cloud-synced flying history, medical cert expiry tracking, qualification monitoring, and official PDF/Excel reports.</p><div class="proj-links"><a href="#" class="plnk demo">🚀 Live Demo</a><a href="#" class="plnk gh">🔒 Classified</a></div></div></div>
+    <div class="proj-card" data-cat="military pwa"><div class="proj-hero" style="background:linear-gradient(135deg,#041a04,#0a2e0a)">🛡️<div class="proj-hero-overlay"></div></div><div class="proj-body"><div class="proj-tags"><span class="ptag">PWA</span><span class="ptag">Firebase</span><span class="ptag">Chart.js</span><span class="ptag">SheetJS</span></div><h3>NAF 115 SOG — Mission Data Management System</h3><p>Military-grade PWA for the Nigerian Air Force. Real-time mission logging, crew records, aircraft analytics. Role-based access, bulk Excel import, command-level reports.</p><div class="proj-links"><a href="https://dcat-gamma.vercel.app/" target="_blank" class="plnk demo">🚀 Live Demo</a><a href="#" class="plnk gh">GitHub →</a></div></div></div>
+    <div class="proj-card" data-cat="pwa webapp"><div class="proj-hero" style="background:linear-gradient(135deg,#1a0a2e,#2d1a4a)">⚜️<div class="proj-hero-overlay"></div></div><div class="proj-body"><div class="proj-tags"><span class="ptag">PWA</span><span class="ptag">Firebase</span><span class="ptag">Paystack</span><span class="ptag">jsPDF</span></div><h3>Royal Rangers Bayelsa — Management Portal</h3><p>Production PWA for Royal Rangers Bayelsa State Command. Auto-generated member IDs, multi-tier dashboards, live Paystack payments, and QR-verified PDF membership cards.</p><div class="proj-links"><a href="https://royalrangerbayelsastate.vercel.app/" target="_blank" class="plnk demo">🚀 Live Demo</a><a href="#" class="plnk gh">GitHub →</a></div></div></div>
+    <div class="proj-card" data-cat="fintech pwa"><div class="proj-hero" style="background:linear-gradient(135deg,#1a1200,#332200)">🌾<div class="proj-hero-overlay"></div></div><div class="proj-body"><div class="proj-tags"><span class="ptag">PWA</span><span class="ptag">Firebase</span><span class="ptag">Chart.js</span><span class="ptag">AgriTech</span></div><h3>Joelle-Tan Ltd — Farm Investment Platform</h3><p>Full-stack agri-investment PWA. Manages farm packages, investor contributions, ROI calculations. Dual-role auth, real-time Firebase sync, Excel/PDF export.</p><div class="proj-links"><a href="https://bigman-teks.github.io/Joelletanltd-farm/" target="_blank" class="plnk demo">🚀 Live Demo</a><a href="https://github.com/bigman-teks/Joelletanltd-farm" target="_blank" class="plnk gh">GitHub →</a></div></div></div>
+    <div class="proj-card" data-cat="pwa webapp"><div class="proj-hero" style="background:linear-gradient(135deg,#0a2a1a,#0d4a2a)">🛍️<div class="proj-hero-overlay"></div></div><div class="proj-body"><div class="proj-tags"><span class="ptag">PWA</span><span class="ptag">Firebase</span><span class="ptag">WhatsApp</span><span class="ptag">E-Commerce</span></div><h3>Nita's Mul-Biz</h3><p>Multi-purpose Lagos business PWA combining e-commerce, service bookings, and Ajo/Esusu savings. WhatsApp integration, Android installable, full offline capability.</p><div class="proj-links"><a href="https://nitas-mulbiz.vercel.app/" target="_blank" class="plnk demo">🚀 Live Demo</a><a href="#" class="plnk gh">GitHub →</a></div></div></div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<div id="skills" style="padding:5rem 0">
-  <div class="skills-wrap">
-    <div class="section-header">
-      <div class="section-tag">Expertise</div>
-      <h2 class="section-title">Skills & <span class="gradient-text">Proficiency</span></h2>
-      <p class="section-sub">Continuously learning and mastering modern technologies</p>
-      <div class="divider"></div>
-    </div>
+<div class="section-bg" id="skills">
+  <div class="inner">
+    <div class="center"><div class="tag">Expertise</div><h2 class="section-title">Skills & <span class="grad">Proficiency</span></h2><div class="divbar"></div></div>
     <div class="skills-grid">
       <div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">React.js</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">WordPress</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">HTML / CSS</span><span class="sk-pct">95%</span></div><div class="sk-track"><div class="sk-fill" data-w="95"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">JavaScript (ES6+)</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-fill" data-w="88"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">Node.js / Express.js</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" data-w="80"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">WordPress</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" data-w="90"></div></div></div>
       </div>
       <div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">Firebase</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">Data Analytics</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">UI/UX Design</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">Firebase (Full Suite)</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" data-w="85"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">PWA Development</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-fill" data-w="88"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">Excel / VBA Automation</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" data-w="85"></div></div></div>
+        <div class="skill-item"><div class="sk-header"><span class="sk-name">Data Analytics</span><span class="sk-pct">82%</span></div><div class="sk-track"><div class="sk-fill" data-w="82"></div></div></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <div class="section-tag">Journey</div>
-    <h2 class="section-title">Experience & <span class="gradient-text">Achievements</span></h2>
-    <div class="divider"></div>
+<section id="experience" class="section">
+  <div class="tag">Journey</div>
+  <h2 class="section-title">Experience & <span class="grad">Achievements</span></h2>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2024 – Present</div><div class="tl-box"><h3>Founder & Lead Developer — Teks Tech</h3><p>Established Teks Tech as a premier digital solutions brand delivering full-stack web apps, PWAs, and data analytics services to clients in defense, fintech, agritech, and NGO sectors across Nigeria.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2023 – 2024</div><div class="tl-box"><h3>Freelance Web & Backend Developer</h3><p>Built and deployed 30+ client projects — e-commerce stores, management portals, REST APIs, and Excel automation dashboards. Grew client base through consistent delivery excellence.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2022 – 2023</div><div class="tl-box"><h3>Royal Rangers Leader & Digital Trainer — Bayelsa State</h3><p>Served as a Royal Rangers leader mentoring youth in leadership and digital skills. Built the official Royal Rangers Bayelsa State Command PWA portal.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2021 – 2022</div><div class="tl-box"><h3>Self-Learning — Foundation Phase</h3><p>Intensive self-study in web development, Node.js, Firebase, and Excel automation. Completed certifications in WordPress, REST API Design, and Advanced Excel & VBA.</p></div></div>
   </div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2024 – Present</div>
-      <div class="tl-content">
-        <h3>Founder & Lead Developer — Teks Tech</h3>
-        <p>Established Teks Tech as a digital solutions brand. Delivering web development, graphic design, and data analytics services to clients across Nigeria and internationally.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2023 – 2024</div>
-      <div class="tl-content">
-        <h3>Freelance Web Designer & Data Analyst</h3>
-        <p>Completed 30+ client projects spanning e-commerce stores, business websites, brand identities, and data dashboards. Built a strong client base through referrals and online platforms.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2022 – 2023</div>
-      <div class="tl-content">
-        <h3>Royal Rangers Leader & Tech Trainer</h3>
-        <p>Served as a Royal Rangers leader, mentoring youth in leadership, discipline, and digital literacy. Organized tech workshops teaching basic programming and design skills.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">2021 – 2022</div>
-      <div class="tl-content">
-        <h3>Started Self-Learning Journey</h3>
-        <p>Embarked on a self-taught path in web development and design. Completed foundational courses in HTML, CSS, JavaScript, Python, and graphic design.</p>
-      </div>
-    </div>
-  </div>
-  <div class="achieve-grid">
-    <div class="achieve-card">
-      <div class="achieve-icon"><i class="ti ti-certificate"></i></div>
-      <div><h4>Meta Front-End Certificate</h4><p>Professional certification in React, HTML, CSS & JavaScript</p></div>
-    </div>
-    <div class="achieve-card">
-      <div class="achieve-icon"><i class="ti ti-trophy"></i></div>
-      <div><h4>Google Data Analytics</h4><p>Certified in data analysis, visualization and R programming</p></div>
-    </div>
-    <div class="achieve-card">
-      <div class="achieve-icon"><i class="ti ti-star"></i></div>
-      <div><h4>50+ Projects Delivered</h4><p>Serving clients across tech, education, health & commerce</p></div>
-    </div>
-    <div class="achieve-card">
-      <div class="achieve-icon"><i class="ti ti-users"></i></div>
-      <div><h4>Royal Rangers Award</h4><p>Leadership excellence and community development recognition</p></div>
-    </div>
+  <div class="ach-grid">
+    <div class="ach-card"><div class="ach-icon">🏅</div><div><h4>WordPress Certified</h4><p>Custom themes, plugins, and WooCommerce development</p></div></div>
+    <div class="ach-card"><div class="ach-icon">📜</div><div><h4>REST API Certified</h4><p>Node.js, Express.js, JWT-secured endpoints</p></div></div>
+    <div class="ach-card"><div class="ach-icon">📊</div><div><h4>Advanced Excel & VBA</h4><p>Automation and KPI tracking for aviation units</p></div></div>
+    <div class="ach-card"><div class="ach-icon">🛡️</div><div><h4>Military Systems Built</h4><p>Two live systems deployed for the Nigerian Air Force 115 SOG</p></div></div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<div id="testimonials" style="padding:5rem 2rem;max-width:1200px;margin:0 auto">
-  <div class="section-header">
-    <div class="section-tag">Testimonials</div>
-    <h2 class="section-title">What Clients <span class="gradient-text">Say</span></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="testi-wrap">
-    <div class="testi-slider">
-      <div class="testi-track" id="testiTrack">
-        <div class="testi-slide">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Big Teks completely transformed our online presence. The website he built was beyond what we imagined — fast, modern, and our sales doubled within 3 months. Highly recommend Teks Tech!</p>
-          <div class="testi-author">
-            <div class="testi-avatar">AO</div>
-            <div>
-              <div class="testi-name">Adaeze Okonkwo</div>
-              <div class="testi-role">CEO, ShopEase Nigeria</div>
-              <div class="testi-stars">★★★★★</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">The data dashboard Emmanuel built for us gave us clarity we never had. We can now make strategic decisions in real time. His technical skills and communication are world-class.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">EI</div>
-            <div>
-              <div class="testi-name">Emmanuel Ikechukwu</div>
-              <div class="testi-role">Operations Manager, LogisticsPro</div>
-              <div class="testi-stars">★★★★★</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">The brand identity Teks designed for my startup was exceptional. Logo, social templates, pitch deck — everything was cohesive and premium. My investors were impressed from day one.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">FK</div>
-            <div>
-              <div class="testi-name">Fatima Kamara</div>
-              <div class="testi-role">Founder, FreshStart Hub</div>
-              <div class="testi-stars">★★★★★</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-arrows">
-      <button class="testi-btn" onclick="slideTesti(-1)"><i class="ti ti-chevron-left"></i></button>
-      <button class="testi-btn" onclick="slideTesti(1)"><i class="ti ti-chevron-right"></i></button>
-    </div>
-    <div class="testi-nav" id="testiNav">
-      <div class="testi-dot active" onclick="goTesti(0)"></div>
-      <div class="testi-dot" onclick="goTesti(1)"></div>
-      <div class="testi-dot" onclick="goTesti(2)"></div>
+<div class="section-bg" id="testimonials">
+  <div class="inner">
+    <div class="center"><div class="tag">Testimonials</div><h2 class="section-title">What Clients <span class="grad">Say</span></h2><div class="divbar"></div></div>
+    <div class="testi-wrap">
+      <div class="testi-track-wrap"><div class="testi-track" id="testiTrack">
+        <div class="testi-slide"><div class="tq">"</div><p class="testi-text">Big Teks completely transformed our organizational management. The Royal Rangers portal handles everything from member registration to live payments — works flawlessly across all our districts.</p><div class="testi-author"><div class="t-avatar">RR</div><div><div class="t-name">Royal Rangers Admin</div><div class="t-role">Bayelsa State Command</div><div class="t-stars">★★★★★</div></div></div></div>
+        <div class="testi-slide"><div class="tq">"</div><p class="testi-text">The farm investment platform Emmanuel built is outstanding. Investors track their ROI in real time, and our admin team has complete visibility over all contributions and packages.</p><div class="testi-author"><div class="t-avatar">JT</div><div><div class="t-name">Joelle-Tan Ltd</div><div class="t-role">Agricultural Investment Company</div><div class="t-stars">★★★★★</div></div></div></div>
+        <div class="testi-slide"><div class="tq">"</div><p class="testi-text">Nita's Mul-Biz is exactly what I needed — e-commerce, bookings, and savings all in one. My customers love the WhatsApp integration and they can install it like a native app.</p><div class="testi-author"><div class="t-avatar">NM</div><div><div class="t-name">Nita's Mul-Biz</div><div class="t-role">Lagos Business Owner</div><div class="t-stars">★★★★★</div></div></div></div>
+      </div></div>
+      <div class="testi-arrows"><button class="t-arr" onclick="slideTesti(-1)">‹</button><button class="t-arr" onclick="slideTesti(1)">›</button></div>
+      <div class="testi-nav" id="testiNav"><div class="t-dot active" onclick="goTesti(0)"></div><div class="t-dot" onclick="goTesti(1)"></div><div class="t-dot" onclick="goTesti(2)"></div></div>
     </div>
   </div>
 </div>
 
 <!-- BLOG -->
-<section id="blog">
-  <div class="section-header">
-    <div class="section-tag">Blog</div>
-    <h2 class="section-title">Latest <span class="gradient-text">Articles</span></h2>
-    <p class="section-sub">Thoughts on tech, design, and building digital products in Africa</p>
-    <div class="divider"></div>
-  </div>
-  <div class="blog-grid">
-    <div class="blog-card">
-      <div class="blog-img">💻</div>
-      <div class="blog-body">
-        <div class="blog-meta"><span class="blog-cat">Web Dev</span><span class="blog-date">May 2025</span></div>
-        <h3>Building Scalable React Apps: Lessons from Real Projects</h3>
-        <p>Practical patterns and architecture decisions I use when building production-ready React applications...</p>
-        <div class="blog-read"><i class="ti ti-arrow-right"></i> Read Article</div>
-      </div>
-    </div>
-    <div class="blog-card">
-      <div class="blog-img">📊</div>
-      <div class="blog-body">
-        <div class="blog-meta"><span class="blog-cat">Data</span><span class="blog-date">Apr 2025</span></div>
-        <h3>Data Analytics for African Businesses: Where to Start</h3>
-        <p>A practical guide for small and medium businesses on leveraging data analytics without a big budget...</p>
-        <div class="blog-read"><i class="ti ti-arrow-right"></i> Read Article</div>
-      </div>
-    </div>
-    <div class="blog-card">
-      <div class="blog-img">🤖</div>
-      <div class="blog-body">
-        <div class="blog-meta"><span class="blog-cat">AI</span><span class="blog-date">Mar 2025</span></div>
-        <h3>How AI is Reshaping Freelance Tech Work in Nigeria</h3>
-        <p>Exploring how artificial intelligence tools are changing the landscape for tech freelancers and creators...</p>
-        <div class="blog-read"><i class="ti ti-arrow-right"></i> Read Article</div>
-      </div>
-    </div>
-  </div>
+<section id="blog" class="section">
+  <div class="center"><div class="tag">Blog</div><h2 class="section-title">Latest <span class="grad">Articles</span></h2><p class="section-sub center">Insights on Firebase, PWA, data, and building digital products in Africa.</p><div class="divbar"></div></div>
+  <div class="blog-grid" id="blogGrid"></div>
 </section>
 
 <!-- CONTACT -->
-<div id="contact" style="padding:5rem 0">
-  <div class="contact-wrap">
-    <div class="section-header">
-      <div class="section-tag">Get in Touch</div>
-      <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
-      <p class="section-sub">Ready to bring your vision to life? Let's have a conversation.</p>
-      <div class="divider"></div>
-    </div>
+<div class="section-bg" id="contact">
+  <div class="inner">
+    <div class="center"><div class="tag">Get in Touch</div><h2 class="section-title">Let's Work <span class="grad">Together</span></h2><p class="section-sub center">Have a project in mind? I respond within 24 hours.</p><div class="divbar"></div></div>
     <div class="contact-grid">
       <div class="contact-info">
-        <h3>Contact <span class="gradient-text">Information</span></h3>
-        <p>Whether you have a project in mind, need a quote, or just want to say hello — my inbox is always open. I typically respond within 24 hours.</p>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="ci-icon"><i class="ti ti-mail"></i></div>
-            <div><div class="ci-label">Email</div><div class="ci-val">bigmanteks@gmail.com</div></div>
-          </div>
-          <div class="contact-item">
-            <div class="ci-icon"><i class="ti ti-phone"></i></div>
-            <div><div class="ci-label">Phone / WhatsApp</div><div class="ci-val">+234 810 113 8259</div></div>
-          </div>
-          <div class="contact-item">
-            <div class="ci-icon"><i class="ti ti-map-pin"></i></div>
-            <div><div class="ci-label">Location</div><div class="ci-val">Nigeria (Remote Worldwide)</div></div>
-          </div>
+        <h3>Contact <span class="grad">Information</span></h3>
+        <p>Whether you need a full web application, a data dashboard, or a WordPress site — let's talk about your project.</p>
+        <div class="c-items">
+          <a class="c-item" href="mailto:tekiteemmanuel@gmail.com"><div class="ci-icon">📧</div><div><div class="ci-label">Email</div><div class="ci-val">tekiteemmanuel@gmail.com</div></div></a>
+          <a class="c-item" href="tel:+2349057065555"><div class="ci-icon">📞</div><div><div class="ci-label">Phone / WhatsApp</div><div class="ci-val">+234 905 706 5555</div></div></a>
+          <a class="c-item" href="https://github.com/bigman-teks" target="_blank"><div class="ci-icon">💻</div><div><div class="ci-label">GitHub</div><div class="ci-val">github.com/bigman-teks</div></div></a>
+          <div class="c-item"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-val">Nigeria — Remote Worldwide</div></div></div>
         </div>
-        <div class="social-row">
-          <div class="soc-btn" title="GitHub"><i class="ti ti-brand-github"></i></div>
-          <div class="soc-btn" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></div>
-          <div class="soc-btn" title="Twitter/X"><i class="ti ti-brand-x"></i></div>
-          <div class="soc-btn" title="Instagram"><i class="ti ti-brand-instagram"></i></div>
-          <div class="soc-btn" title="YouTube"><i class="ti ti-brand-youtube"></i></div>
-          <div class="soc-btn" title="WhatsApp" onclick="openWhatsApp()"><i class="ti ti-brand-whatsapp"></i></div>
+        <div class="soc-row">
+          <a href="https://github.com/bigman-teks" target="_blank" class="soc-btn">💻</a>
+          <a href="#" class="soc-btn">🔗</a>
+          <a href="#" class="soc-btn">🐦</a>
+          <a href="#" class="soc-btn">📸</a>
+          <a href="https://wa.me/2348101138259" target="_blank" class="soc-btn">💬</a>
         </div>
       </div>
       <div class="contact-form">
         <div class="form-row">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Your name"/>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com"/>
-          </div>
+          <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"/></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
         </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <select>
-            <option>Website Development</option>
-            <option>Graphic Design</option>
-            <option>Data Analytics</option>
-            <option>WordPress Development</option>
-            <option>AI Solutions</option>
-            <option>General Inquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me about your project, timeline, and budget..."></textarea>
-        </div>
-        <button class="btn-submit" onclick="submitForm()"><i class="ti ti-send" style="margin-right:.4rem"></i>Send Message</button>
-        <button class="wa-btn" onclick="openWhatsApp()"><i class="ti ti-brand-whatsapp" style="font-size:1.2rem"></i>Chat on WhatsApp</button>
+        <div class="fg"><label>Service Needed</label><select><option>Web App Development</option><option>PWA Development</option><option>Backend API</option><option>Data Analytics / Dashboard</option><option>WordPress Development</option><option>Payment Integration</option><option>General Inquiry</option></select></div>
+        <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project, timeline, and budget..."></textarea></div>
+        <button class="btn-submit" onclick="submitForm()">🚀 Send Message</button>
+        <button class="wa-btn" onclick="openWA()">💬 Chat on WhatsApp Instead</button>
       </div>
     </div>
   </div>
@@ -771,149 +544,397 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo">Big Teks</span>
-        <p>Building premium digital solutions across web design, graphic design, and data analytics. Powered by <strong>Teks Tech</strong>.</p>
-        <div class="social-row" style="margin-top:1rem">
-          <div class="soc-btn"><i class="ti ti-brand-github"></i></div>
-          <div class="soc-btn"><i class="ti ti-brand-linkedin"></i></div>
-          <div class="soc-btn"><i class="ti ti-brand-x"></i></div>
-          <div class="soc-btn"><i class="ti ti-brand-instagram"></i></div>
-        </div>
-      </div>
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Web Development</a></li>
-          <li><a href="#services">Graphic Design</a></li>
-          <li><a href="#services">Data Analytics</a></li>
-          <li><a href="#services">WordPress</a></li>
-          <li><a href="#services">AI Solutions</a></li>
-          <li><a href="#contact">Get a Quote</a></li>
-        </ul>
-      </div>
+      <div class="footer-brand"><span class="logo">Big Teks</span><p>Building premium digital solutions — web apps, PWAs, data systems, and backend APIs. Powered by <strong>Teks Tech</strong>.</p><div class="soc-row" style="margin-top:1.25rem"><a href="https://github.com/bigman-teks" target="_blank" class="soc-btn">💻</a><a href="#" class="soc-btn">🔗</a><a href="#" class="soc-btn">🐦</a><a href="https://wa.me/2348101138259" target="_blank" class="soc-btn">💬</a></div></div>
+      <div class="footer-links"><h4>Navigation</h4><ul><li><a href="#about">About Me</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#blog">Blog</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="footer-links"><h4>Services</h4><ul><li><a href="#services">Web App Development</a></li><li><a href="#services">PWA Engineering</a></li><li><a href="#services">Backend APIs</a></li><li><a href="#services">Data Analytics</a></li><li><a href="#services">WordPress</a></li><li><a href="#contact">Get a Quote</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 Tekite Emmanuel Wonyinson (Big Teks) · <strong>Teks Tech</strong>. All rights reserved.</div>
-      <div class="visitor-count"><i class="ti ti-eye" style="font-size:.9rem"></i> <span class="vis-num" id="visCount">0</span> visitors this month</div>
+      <div class="vis-count">👁 <span class="vis-num" id="visNum">0</span> visitors this month</div>
     </div>
   </div>
 </footer>
 
 <!-- CHATBOT -->
-<button class="chat-fab" onclick="toggleChat()" title="Chat with Teks Bot"><i class="ti ti-message-chatbot"></i></button>
+<button class="chat-fab" onclick="toggleChat()">💬</button>
 <div class="chat-window" id="chatWin">
-  <div class="chat-head">
-    <div class="ch-avatar"><i class="ti ti-robot"></i></div>
-    <div><h4>Teks Bot</h4><p>Ask me anything!</p></div>
-    <button class="chat-close" onclick="toggleChat()"><i class="ti ti-x"></i></button>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div class="chat-msg bot">👋 Hi! I'm Teks Bot, Big Teks' assistant. How can I help you today?</div>
-    <div class="chat-msg bot">You can ask me about services, pricing, availability, or just say hello! 😊</div>
-  </div>
-  <div class="chat-input-row">
-    <input type="text" id="chatIn" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()"/>
-    <button class="chat-send" onclick="sendChat()"><i class="ti ti-send"></i></button>
+  <div class="chat-head"><div class="ch-av">🤖</div><div><h4>Teks Bot</h4><p>Big Teks' Assistant</p></div><button class="chat-close" onclick="toggleChat()">✕</button></div>
+  <div class="chat-body" id="chatBody"><div class="cmsg bot">👋 Hi! I'm Teks Bot. Ask me about Big Teks' services, projects, or availability!</div></div>
+  <div class="chat-in-row"><input id="chatIn" type="text" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')sendChat()"/><button class="chat-send" onclick="sendChat()">➤</button></div>
+</div>
+
+<!-- ARTICLE READER MODAL -->
+<div class="modal-overlay" id="articleModal">
+  <div class="article-modal">
+    <button class="modal-close" onclick="closeArticle()">✕</button>
+    <h2 id="modalTitle"></h2>
+    <div class="art-meta" id="modalMeta"></div>
+    <div class="art-content" id="modalContent"></div>
   </div>
 </div>
 
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2>⚙️ Admin Panel — Big Teks</h2>
+      <button class="modal-close" onclick="closeAdmin()">✕</button>
+    </div>
+
+    <!-- PASSWORD GATE -->
+    <div id="pwdGate" class="pwd-gate">
+      <h3>🔐 Admin Access</h3>
+      <p>Enter your admin password to manage articles and CV.</p>
+      <div class="pwd-row">
+        <input type="password" id="pwdInput" placeholder="Password" onkeydown="if(event.key==='Enter')checkPwd()"/>
+        <button class="a-btn primary" onclick="checkPwd()">Enter</button>
+      </div>
+      <p style="margin-top:.75rem;font-size:.75rem;color:var(--text3)"></p>
+    </div>
+
+    <!-- PANEL CONTENT (shown after login) -->
+    <div id="adminContent" style="display:none">
+      <div class="admin-tabs">
+        <button class="a-tab active" onclick="switchTab('articles')">📝 Articles</button>
+        <button class="a-tab" onclick="switchTab('write')">✍️ Write New</button>
+        <button class="a-tab" onclick="switchTab('cv')">📄 Upload CV</button>
+        <button class="a-tab" onclick="switchTab('photo')">🖼 Profile Photo</button>
+      </div>
+      <div class="admin-body">
+
+        <!-- ARTICLES LIST -->
+        <div class="admin-section active" id="tab-articles">
+          <h3 style="font-weight:700;margin-bottom:.25rem">Published Articles</h3>
+          <p style="color:var(--text3);font-size:.85rem;margin-bottom:1rem">All your blog posts. Click Edit to modify or Delete to remove.</p>
+          <div class="articles-list" id="articlesList"></div>
+        </div>
+
+        <!-- WRITE ARTICLE -->
+        <div class="admin-section" id="tab-write">
+          <h3 style="font-weight:700;margin-bottom:.25rem" id="writeHeading">Write New Article</h3>
+          <p style="color:var(--text3);font-size:.85rem;margin-bottom:1.25rem">Fill in the details below. Your article will appear in the Blog section.</p>
+          <input type="hidden" id="editId"/>
+          <div class="arow">
+            <div class="afield"><label>Article Title</label><input id="artTitle" type="text" placeholder="e.g. Building PWAs with Firebase"/></div>
+            <div class="afield"><label>Category</label><select id="artCat"><option>Firebase</option><option>PWA</option><option>Data</option><option>Node.js</option><option>WordPress</option><option>Career</option><option>General</option></select></div>
+          </div>
+          <div class="afield"><label>Short Summary (shown on card)</label><input id="artSummary" type="text" placeholder="A brief one-line summary of the article..."/></div>
+          <div class="afield"><label>Cover Emoji</label><input id="artEmoji" type="text" placeholder="e.g. 🔥" style="width:100px"/><span class="editor-tip">Pick an emoji that represents the article topic.</span></div>
+          <div class="afield"><label>Full Article Content</label><textarea id="artContent" style="min-height:220px" placeholder="Write your full article here. Use blank lines to separate paragraphs..."></textarea><div class="editor-tip">Write naturally — paragraphs separated by blank lines will display correctly.</div></div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <button class="a-btn primary" onclick="saveArticle()">💾 Publish Article</button>
+            <button class="a-btn ghost" onclick="clearEditor()">🗑 Clear</button>
+          </div>
+        </div>
+
+        <!-- CV UPLOAD -->
+        <div class="admin-section" id="tab-cv">
+          <h3 style="font-weight:700;margin-bottom:.25rem">Upload Your CV</h3>
+          <p style="color:var(--text3);font-size:.85rem;margin-bottom:1.25rem">Upload your CV/resume. It will be available for download via the "Download CV" button on the portfolio.</p>
+          <div id="cvCurrent" style="display:none" class="cv-current">
+            <div class="cv-current-info"><div class="cv-icon">📄</div><div><div class="cv-name" id="cvFileName">—</div><div class="cv-size" id="cvFileSize">—</div></div></div>
+            <div style="display:flex;gap:.5rem">
+              <button class="a-btn primary" onclick="triggerCvPick()">🔄 Replace</button>
+              <button class="a-btn danger" onclick="removeCV()">🗑 Remove</button>
+            </div>
+          </div>
+          <div class="cv-upload-zone" id="cvZone" onclick="triggerCvPick()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="handleCvDrop(event)">
+            <div class="upload-icon">📄</div>
+            <h3>Drop your CV here or click to browse</h3>
+            <p>Supports PDF, DOC, DOCX — max 10MB</p>
+          </div>
+          <input type="file" id="cvInput" accept=".pdf,.doc,.docx" style="display:none" onchange="handleCvFile(event)"/>
+          <div class="editor-tip">Your CV is stored locally in the browser. For permanent hosting, deploy the file to GitHub and update the download link in the code.</div>
+        </div>
+
+        <!-- PROFILE PHOTO -->
+        <div class="admin-section" id="tab-photo">
+          <h3 style="font-weight:700;margin-bottom:.25rem">Profile Photo</h3>
+          <p style="color:var(--text3);font-size:.85rem;margin-bottom:1.25rem">Upload your professional photo to replace the "BT" initials in the About section.</p>
+          <div class="cv-upload-zone" onclick="triggerPhotoUpload()" style="margin-bottom:1rem">
+            <div id="photoPreviewAdmin" style="width:120px;height:120px;border-radius:50%;margin:0 auto .75rem;overflow:hidden;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:2.5rem">BT</div>
+            <h3>Click to upload photo</h3>
+            <p>JPG, PNG, WEBP — recommended 400×400px or larger</p>
+          </div>
+          <button class="a-btn danger" onclick="removePhoto()">🗑 Remove Photo (restore initials)</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 <script>
-let isDark=true,testiIdx=0,chatOpen=false,menuOpen=false;
+// ── THREE.JS 3D HERO ──
+(function(){
+  const canvas=document.getElementById('hero-canvas');
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,0.1,1000);
+  camera.position.set(0,0,28);
+  const pCount=1800,pGeo=new THREE.BufferGeometry(),pPos=new Float32Array(pCount*3),pCol=new Float32Array(pCount*3);
+  const cols=[[0.31,0.55,0.97],[0.49,0.23,0.93],[0,0.96,0.83]];
+  for(let i=0;i<pCount;i++){pPos[i*3]=(Math.random()-.5)*80;pPos[i*3+1]=(Math.random()-.5)*80;pPos[i*3+2]=(Math.random()-.5)*80;const c=cols[Math.floor(Math.random()*cols.length)];pCol[i*3]=c[0];pCol[i*3+1]=c[1];pCol[i*3+2]=c[2];}
+  pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+  pGeo.setAttribute('color',new THREE.BufferAttribute(pCol,3));
+  const pMat=new THREE.PointsMaterial({size:.18,vertexColors:true,transparent:true,opacity:.75});
+  scene.add(new THREE.Points(pGeo,pMat));
+  const torus=new THREE.Mesh(new THREE.TorusGeometry(7,.18,16,120),new THREE.MeshBasicMaterial({color:0x4f8ef7,transparent:true,opacity:.25}));
+  torus.rotation.x=Math.PI/4;scene.add(torus);
+  const torus2=new THREE.Mesh(new THREE.TorusGeometry(10,.1,16,120),new THREE.MeshBasicMaterial({color:0x7c3aed,transparent:true,opacity:.15}));
+  torus2.rotation.x=-Math.PI/3;torus2.rotation.y=Math.PI/4;scene.add(torus2);
+  const ico=new THREE.Mesh(new THREE.IcosahedronGeometry(4,1),new THREE.MeshBasicMaterial({color:0x00f5d4,wireframe:true,transparent:true,opacity:.12}));
+  scene.add(ico);
+  let mx=0,my=0;
+  window.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-.5)*2;my=(e.clientY/window.innerHeight-.5)*2});
+  window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+  let t=0;(function anim(){requestAnimationFrame(anim);t+=.004;torus.rotation.y=t*.6;torus.rotation.z=t*.2;torus2.rotation.y=-t*.4;ico.rotation.x=t*.3;ico.rotation.y=t*.5;camera.position.x+=(mx*3-camera.position.x)*.04;camera.position.y+=(-my*3-camera.position.y)*.04;camera.lookAt(0,0,0);renderer.render(scene,camera);})();
+})();
 
-function toggleTheme(){
-  isDark=!isDark;
-  document.getElementById('body').classList.toggle('light',!isDark);
-  document.getElementById('darkToggle').innerHTML=isDark?'<i class="ti ti-moon"></i>':'<i class="ti ti-sun"></i>';
-}
-function toggleMenu(){menuOpen=!menuOpen;document.getElementById('mobileMenu').style.display=menuOpen?'flex':'none'}
-function closeMenu(){menuOpen=false;document.getElementById('mobileMenu').style.display='none'}
+// ── NAV SCROLL ──
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
 
-function filterProj(cat,el){
-  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  document.querySelectorAll('.proj-card').forEach(c=>{
-    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
-  });
-}
+// ── THEME ──
+let isDark=true;
+function toggleTheme(){isDark=!isDark;document.getElementById('body').classList.toggle('light',!isDark);document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';}
 
-function slideTesti(dir){goTesti(testiIdx+dir)}
-function goTesti(idx){
-  const slides=document.querySelectorAll('.testi-slide');
-  testiIdx=(idx+slides.length)%slides.length;
-  document.getElementById('testiTrack').style.transform=`translateX(-${testiIdx*100}%)`;
-  document.querySelectorAll('.testi-dot').forEach((d,i)=>{d.classList.toggle('active',i===testiIdx)});
-}
-setInterval(()=>slideTesti(1),5000);
+// ── MOBILE MENU ──
+let mobOpen=false;
+function toggleHam(){mobOpen=!mobOpen;document.getElementById('mobMenu').style.display=mobOpen?'flex':'none';}
+function closeMob(){mobOpen=false;document.getElementById('mobMenu').style.display='none';}
 
-function toggleChat(){
-  chatOpen=!chatOpen;
-  document.getElementById('chatWin').classList.toggle('open',chatOpen);
-}
-
-const botReplies={
-  'hello':'Hello! 👋 Great to hear from you. How can I assist you today?',
-  'hi':'Hi there! Ready to help. Are you looking for web design, data, or graphic design services?',
-  'services':'Big Teks offers Web Design, Graphic Design, Data Analytics, WordPress Dev, Dashboard Systems, and AI-Powered Solutions! 🚀',
-  'price':'Pricing varies by project scope. Feel free to use the contact form for a custom quote!',
-  'contact':'You can reach Big Teks via the contact form above, WhatsApp, or email at bigteks@tekitech.com 📧',
-  'hire':'Awesome! Head to the Contact section above and fill in your project details. Big Teks responds within 24 hours! ⚡',
-  'default':"That's a great question! For detailed answers, please reach out via the contact form or WhatsApp. Big Teks will get back to you shortly! 😊"
-};
-
-function sendChat(){
-  const inp=document.getElementById('chatIn');
-  const msg=inp.value.trim();
-  if(!msg)return;
-  const body=document.getElementById('chatBody');
-  body.innerHTML+=`<div class="chat-msg user">${msg}</div>`;
-  inp.value='';
-  const key=Object.keys(botReplies).find(k=>msg.toLowerCase().includes(k))||'default';
-  setTimeout(()=>{
-    body.innerHTML+=`<div class="chat-msg bot">${botReplies[key]}</div>`;
-    body.scrollTop=body.scrollHeight;
-  },600);
-  body.scrollTop=body.scrollHeight;
+// ── PROJECT FILTER ──
+function filterP(cat,el){
+  document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(c=>{const cats=c.dataset.cat.split(' ');c.style.display=(cat==='all'||cats.includes(cat))?'flex':'none';});
 }
 
-function submitForm(){
-  alert('✅ Message sent! Big Teks will get back to you within 24 hours.');
+// ── SKILL BARS ──
+function animSkills(){document.querySelectorAll('.sk-fill').forEach(b=>{setTimeout(()=>{b.style.width=b.dataset.w+'%'},100);});}
+const skObs=new IntersectionObserver(e=>{if(e[0].isIntersecting){animSkills();skObs.disconnect();}},{threshold:.3});
+const skEl=document.getElementById('skills');if(skEl)skObs.observe(skEl);
+
+// ── TESTIMONIALS ──
+let tIdx=0;
+function slideTesti(d){goTesti(tIdx+d);}
+function goTesti(i){const s=document.querySelectorAll('.testi-slide');tIdx=(i+s.length)%s.length;document.getElementById('testiTrack').style.transform=`translateX(-${tIdx*100}%)`;document.querySelectorAll('.t-dot').forEach((d,i)=>d.classList.toggle('active',i===tIdx));}
+setInterval(()=>slideTesti(1),5500);
+
+// ── TOAST ──
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800);}
+
+// ── CHATBOT ──
+let chatOpen=false;
+function toggleChat(){chatOpen=!chatOpen;document.getElementById('chatWin').classList.toggle('open',chatOpen);}
+const replies={hello:'Hello! 👋 How can I help you today?',hi:"Hi there! Ask me about Big Teks' services or projects!",service:'Big Teks specializes in: Web Apps, PWA, Node.js APIs, Firebase, Data Analytics, WordPress, and Paystack! 🚀',project:'Big Teks has built military-grade systems for the Nigerian Air Force, a youth portal for Royal Rangers Bayelsa, a farm investment platform, and more!',hire:'Great! Use the contact form or WhatsApp +234 905 706 5555. Big Teks replies within 24 hours! ⚡',price:'Pricing depends on project scope. Fill the contact form for a custom quote!',contact:'Email: tekiteemmanuel@gmail.com | WhatsApp: +234 905 706 5555',default:'Great question! Reach out via the contact form or WhatsApp. Big Teks will reply shortly! 😊'};
+function sendChat(){const inp=document.getElementById('chatIn');const msg=inp.value.trim();if(!msg)return;const body=document.getElementById('chatBody');body.innerHTML+=`<div class="cmsg user">${msg}</div>`;inp.value='';body.scrollTop=body.scrollHeight;const key=Object.keys(replies).find(k=>msg.toLowerCase().includes(k))||'default';setTimeout(()=>{body.innerHTML+=`<div class="cmsg bot">${replies[key]}</div>`;body.scrollTop=body.scrollHeight;},700);}
+
+// ── CONTACT ──
+function submitForm(){showToast('✅ Message sent! Big Teks will reply within 24 hours.');}
+function openWA(){window.open('https://wa.me/2348101138259?text=Hi%20Big%20Teks!%20I%27d%20like%20to%20discuss%20a%20project.','_blank');}
+
+// ── VISITOR COUNTER ──
+document.getElementById('visNum').textContent=(1247+Math.floor(Math.random()*60)).toLocaleString();
+
+// ════════════════════════════════════════
+// ── DATA STORE (localStorage) ──
+// ════════════════════════════════════════
+function loadData(){
+  const d=localStorage.getItem('bt_data');
+  return d?JSON.parse(d):{articles:[
+    {id:'default1',title:'Building Role-Based Access with Firebase Firestore',cat:'Firebase',summary:'How I structure multi-tier RBAC for PWAs — lessons from real projects.',emoji:'🔥',content:'Firebase Firestore is incredibly powerful for building role-based access systems...\n\nIn my work on the Royal Rangers portal and the NAF MDMAS system, I developed a clean pattern for multi-tier access control that scales beautifully.\n\nThe key is to store user roles in a separate Firestore collection and always validate permissions server-side using Firebase Security Rules — never trust the client alone.\n\nI hope this helps you build more secure applications!',date:'Jun 2025'},
+    {id:'default2',title:'PWAs vs Native Apps: Why I Always Recommend PWA for Nigerian Businesses',cat:'PWA',summary:'Cost, reach, and offline support — why Progressive Web Apps win.',emoji:'📱',content:'When clients ask me whether they need a native app or a website, my answer is almost always: Progressive Web App.\n\nHere is why...\n\nA PWA costs a fraction of a native app to build, works on all platforms (Android, iOS, desktop), supports offline mode, and can be installed directly from the browser — no app store needed.\n\nFor Nigerian businesses where data costs are a concern and Android device diversity is wide, PWAs are simply the smarter choice.',date:'May 2025'},
+    {id:'default3',title:'Excel VBA Automation for Aviation Operations',cat:'Data',summary:'How I built aviation dashboards for Nigerian Air Force units.',emoji:'📊',content:'Excel VBA remains one of the most underrated tools in enterprise operations — especially in environments where full database systems are not feasible.\n\nIn my work for Nigerian Air Force units, I built dashboards tracking fuel consumption, aircraft serviceability, and pilot flight hours — all driven by VBA macros that auto-calculate, validate, and export to PDF.\n\nThe result was a massive reduction in manual reporting time and near-zero calculation errors.',date:'Apr 2025'}
+  ],cv:null,photo:null};
 }
+function saveData(d){localStorage.setItem('bt_data',JSON.stringify(d));}
+let store=loadData();
+
+// ── BLOG RENDERING ──
+function renderBlog(){
+  const grid=document.getElementById('blogGrid');
+  if(!store.articles.length){grid.innerHTML='<p style="color:var(--text3);text-align:center;grid-column:1/-1">No articles yet. Use the Admin panel to write your first article!</p>';return;}
+  grid.innerHTML=store.articles.map(a=>`
+    <div class="blog-card" onclick="openArticle('${a.id}')">
+      <div class="blog-img" style="background:linear-gradient(135deg,#060914,#0d1117)"><span class="emoji">${a.emoji||'📝'}</span></div>
+      <div class="blog-body">
+        <div class="blog-meta"><span class="blog-cat">${a.cat}</span><span class="blog-date">${a.date}</span></div>
+        <h3>${a.title}</h3>
+        <p>${a.summary}</p>
+        <div class="blog-read">→ Read Article</div>
+      </div>
+    </div>`).join('');
+}
+renderBlog();
+
+// ── ARTICLE READER ──
+function openArticle(id){
+  const a=store.articles.find(x=>x.id===id);if(!a)return;
+  document.getElementById('modalTitle').textContent=a.title;
+  document.getElementById('modalMeta').innerHTML=`<span>📂 ${a.cat}</span><span>📅 ${a.date}</span>`;
+  document.getElementById('modalContent').textContent=a.content;
+  document.getElementById('articleModal').classList.add('open');
+}
+function closeArticle(){document.getElementById('articleModal').classList.remove('open');}
+document.getElementById('articleModal').addEventListener('click',function(e){if(e.target===this)closeArticle();});
+
+// ── ADMIN PANEL ──
+let adminUnlocked=false;
+const ADMIN_PWD='bigteks2025';
+
+function openAdmin(){document.getElementById('adminOverlay').classList.add('open');if(!adminUnlocked){document.getElementById('pwdGate').style.display='block';document.getElementById('adminContent').style.display='none';}}
+function closeAdmin(){document.getElementById('adminOverlay').classList.remove('open');}
+document.getElementById('adminOverlay').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
+
+function checkPwd(){
+  const v=document.getElementById('pwdInput').value;
+  if(v===ADMIN_PWD){adminUnlocked=true;document.getElementById('pwdGate').style.display='none';document.getElementById('adminContent').style.display='block';renderAdminArticles();syncCvUI();syncPhotoAdmin();}
+  else{showToast('❌ Wrong password. Try again.');document.getElementById('pwdInput').value='';}
+}
+
+function switchTab(t){
+  document.querySelectorAll('.a-tab').forEach((b,i)=>b.classList.toggle('active',['articles','write','cv','photo'][i]===t));
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+}
+
+// ── ARTICLES ADMIN ──
+function renderAdminArticles(){
+  const list=document.getElementById('articlesList');
+  if(!store.articles.length){list.innerHTML='<p style="color:var(--text3);font-size:.88rem">No articles yet. Click "Write New" to get started.</p>';return;}
+  list.innerHTML=store.articles.map(a=>`
+    <div class="art-item">
+      <div class="art-item-info"><h4>${a.emoji||'📝'} ${a.title}</h4><p>${a.cat} · ${a.date}</p></div>
+      <div class="art-item-actions">
+        <button class="a-btn ghost" onclick="editArticle('${a.id}')">✏️ Edit</button>
+        <button class="a-btn danger" onclick="deleteArticle('${a.id}')">🗑</button>
+      </div>
+    </div>`).join('');
+}
+
+function saveArticle(){
+  const title=document.getElementById('artTitle').value.trim();
+  const content=document.getElementById('artContent').value.trim();
+  if(!title||!content){showToast('⚠️ Title and content are required.');return;}
+  const id=document.getElementById('editId').value||('art_'+Date.now());
+  const now=new Date();
+  const dateStr=now.toLocaleString('en-US',{month:'short',year:'numeric'});
+  const art={id,title,cat:document.getElementById('artCat').value,summary:document.getElementById('artSummary').value||title,emoji:document.getElementById('artEmoji').value||'📝',content,date:dateStr};
+  const idx=store.articles.findIndex(a=>a.id===id);
+  if(idx>=0)store.articles[idx]=art;else store.articles.unshift(art);
+  saveData(store);renderBlog();renderAdminArticles();clearEditor();
+  showToast('✅ Article published successfully!');switchTab('articles');
+}
+
+function editArticle(id){
+  const a=store.articles.find(x=>x.id===id);if(!a)return;
+  document.getElementById('editId').value=a.id;
+  document.getElementById('artTitle').value=a.title;
+  document.getElementById('artCat').value=a.cat;
+  document.getElementById('artSummary').value=a.summary;
+  document.getElementById('artEmoji').value=a.emoji||'';
+  document.getElementById('artContent').value=a.content;
+  document.getElementById('writeHeading').textContent='Edit Article';
+  switchTab('write');
+}
+
+function deleteArticle(id){
+  if(!confirm('Delete this article? This cannot be undone.'))return;
+  store.articles=store.articles.filter(a=>a.id!==id);
+  saveData(store);renderBlog();renderAdminArticles();
+  showToast('🗑 Article deleted.');
+}
+
+function clearEditor(){
+  document.getElementById('editId').value='';
+  document.getElementById('artTitle').value='';
+  document.getElementById('artSummary').value='';
+  document.getElementById('artEmoji').value='';
+  document.getElementById('artContent').value='';
+  document.getElementById('writeHeading').textContent='Write New Article';
+}
+
+// ── CV UPLOAD ──
+function triggerCvPick(){document.getElementById('cvInput').click();}
+function handleCvDrop(e){e.preventDefault();document.getElementById('cvZone').classList.remove('drag');const f=e.dataTransfer.files[0];if(f)processCvFile(f);}
+function handleCvFile(e){const f=e.target.files[0];if(f)processCvFile(f);}
+
+function processCvFile(file){
+  if(file.size>10*1024*1024){showToast('⚠️ File too large. Max 10MB.');return;}
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    store.cv={name:file.name,size:formatSize(file.size),type:file.type,data:ev.target.result};
+    saveData(store);syncCvUI();
+    document.getElementById('cvDownloadBtn').classList.add('visible');
+    showToast('✅ CV uploaded: '+file.name);
+  };
+  reader.readAsDataURL(file);
+}
+
+function formatSize(b){return b>1024*1024?(b/1024/1024).toFixed(1)+' MB':(b/1024).toFixed(0)+' KB';}
+
+function syncCvUI(){
+  const hasCv=!!store.cv;
+  document.getElementById('cvCurrent').style.display=hasCv?'flex':'none';
+  document.getElementById('cvZone').style.display=hasCv?'none':'block';
+  if(hasCv){document.getElementById('cvFileName').textContent=store.cv.name;document.getElementById('cvFileSize').textContent=store.cv.size;}
+  document.getElementById('cvDownloadBtn').classList.toggle('visible',hasCv);
+}
+
+function removeCV(){
+  if(!confirm('Remove the uploaded CV?'))return;
+  store.cv=null;saveData(store);syncCvUI();
+  document.getElementById('cvInput').value='';
+  showToast('🗑 CV removed.');
+}
+
 function downloadCV(){
-  alert('📄 CV download will start shortly. Thank you for your interest!');
-}
-function openWhatsApp(){
-  window.open('https://wa.me/2348101138259?text=Hi%20Big%20Teks!%20I%27d%20like%20to%20discuss%20a%20project.','_blank');
+  if(!store.cv){showToast('⚠️ No CV uploaded yet. Use the Admin panel to upload.');return;}
+  const a=document.createElement('a');a.href=store.cv.data;a.download=store.cv.name;document.body.appendChild(a);a.click();document.body.removeChild(a);
+  showToast('📄 Downloading '+store.cv.name);
 }
 
-// Skill bars
-function animateSkills(){
-  document.querySelectorAll('.skill-fill').forEach(bar=>{
-    const w=bar.dataset.w;
-    setTimeout(()=>{bar.style.width=w+'%'},200);
-  });
+// ── PROFILE PHOTO ──
+function triggerPhotoUpload(){
+  const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
+  inp.onchange=function(e){
+    const file=e.target.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=function(ev){
+      store.photo=ev.target.result;saveData(store);applyPhoto();syncPhotoAdmin();
+      showToast('✅ Photo updated!');
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
 }
-const skillsObs=new IntersectionObserver(entries=>{
-  if(entries[0].isIntersecting){animateSkills();skillsObs.disconnect();}
-},{threshold:.3});
-const skillsEl=document.getElementById('skills');
-if(skillsEl)skillsObs.observe(skillsEl);
 
-// Visitor counter
-const visBase=1247;
-document.getElementById('visCount').textContent=(visBase+Math.floor(Math.random()*50)).toLocaleString();
+function applyPhoto(){
+  const img=document.getElementById('avatarImg');
+  const initials=document.getElementById('avatarInitials');
+  if(store.photo){img.src=store.photo;img.style.display='block';if(initials)initials.style.display='none';}
+  else{img.style.display='none';if(initials)initials.style.display='block';}
+}
+
+function removePhoto(){
+  store.photo=null;saveData(store);applyPhoto();syncPhotoAdmin();
+  showToast('🗑 Photo removed. Initials restored.');
+}
+
+function syncPhotoAdmin(){
+  const prev=document.getElementById('photoPreviewAdmin');
+  if(store.photo)prev.innerHTML=`<img src="${store.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>`;
+  else prev.textContent='BT';
+}
+
+// ── INIT ──
+applyPhoto();
+syncCvUI();
 </script>
 </body>
 </html>
